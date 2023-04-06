@@ -27,3 +27,9 @@ If you have any questions regarding this exercise, please contact your recruiter
 Thanks again for your time and we're looking forward to seeing your final project!
 
 ClickUp Crew
+
+---
+
+Notes.:
+
+- Used tslist to avoid escaping the scope of the assignment. Would reccomend migrating to eslint [migration walkthrough](https://medium.com/@bhavinmatariya99/painless-migration-of-tslint-to-eslint-angular-b25da240320c)
