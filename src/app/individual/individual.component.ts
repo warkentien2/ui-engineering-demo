@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Character } from '../api_responses/character';
 import { CharactersService } from '../characters.service';
@@ -6,7 +6,8 @@ import { CharactersService } from '../characters.service';
 @Component({
   selector: 'app-individual',
   templateUrl: './individual.component.html',
-  styleUrls: ['./individual.component.scss']
+  styleUrls: ['./individual.component.scss'],
+  encapsulation: ViewEncapsulation.Emulated,
 })
 export class IndividualComponent implements OnInit {
   character: Character;

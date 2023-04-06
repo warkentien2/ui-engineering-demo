@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CharacterApiResponse } from '../api_responses/characterapiresponse';
 import { CharactersService } from '../characters.service';
@@ -6,7 +6,8 @@ import { CharactersService } from '../characters.service';
 @Component({
   selector: 'characters',
   templateUrl: './characters.component.html',
-  styleUrls: ['./characters.component.scss']
+  styleUrls: ['./characters.component.scss'],
+  encapsulation: ViewEncapsulation.Emulated,
 })
 export class CharactersComponent implements OnInit {
   characterCall: CharacterApiResponse;

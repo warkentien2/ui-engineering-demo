@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { EpisodeApiResponse } from '../api_responses/episodeapiresponse';
 import { EpisodesService } from '../episodes.service';
 
 @Component({
   selector: 'episodes',
   templateUrl: './episodes.component.html',
-  styleUrls: ['./episodes.component.scss']
+  styleUrls: ['./episodes.component.scss'],
+  encapsulation: ViewEncapsulation.Emulated,
 })
 export class EpisodesComponent implements OnInit {
   episodesCall: EpisodeApiResponse;
