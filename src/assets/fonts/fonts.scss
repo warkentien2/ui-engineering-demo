@@ -1,0 +1,74 @@
+/*
+  Since Gotham Pro wasn't free for personal use, I found the best alternative.
+  Font comparison: https://www.learnui.design/blog/gotham-similar-fonts.html
+  Download repo: https://github.com/dw5/Metropolis
+  Controversy: https://discourse.mozilla.org/t/metropolis-font-repo-missing/69415/3
+
+  If this project were to go commercial: 
+  I would advise buying the Gotham Pro license or 
+  using the second-best and controversy-free free alternative:
+  Google Fonts - Figtree: https://fonts.google.com/specimen/Figtree
+*/
+
+@font-face {
+  font-family: "Metropolis";
+  src: url("./Metropolis/Metropolis-Thin.woff2") format("woff2");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Metropolis";
+  src: url("./Metropolis/Metropolis-ExtraLight.woff2") format("woff2");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Metropolis";
+  src: url("./Metropolis/Metropolis-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Metropolis";
+  src: url("./Metropolis/Metropolis-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Metropolis";
+  src: url("./Metropolis/Metropolis-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Metropolis";
+  src: url("./Metropolis/Metropolis-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Metropolis";
+  src: url("./Metropolis/Metropolis-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Metropolis";
+  src: url("./Metropolis/Metropolis-ExtraBold.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Metropolis";
+  src: url("./Metropolis/Metropolis-Black.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+}

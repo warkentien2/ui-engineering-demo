@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+
+body {
+  font-family: "Metropolis", Helvetica, Arial, sans-serif;
+  font-style: normal;
+
+  margin: 0;
+  display: grid;
+  grid-template-rows: 1fr;
+  min-height: 100vh;
+  min-height: 100dvh;
+
+  &,
+  * {
+    position: relative;
+  }
+}
