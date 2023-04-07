@@ -1,23 +1,4 @@
 :host {
-  --main-header-height: 260px;
-  /* 
-  Note: I don't like this size (based on Figma's pixel height)
-  I would suggest the relative to width height: (also from Figma units)
-  header/page-width .: 260/1537 .: 16.9% ~ 17% (17vw)
-
-  Didn't change much
-
-  Second approach: 
-  considering that the largest vertical element is the Character block.
-  I would suggest a aesthetically pleasing 1/3 space for the largest element, 
-  leaving the rest for header + empty space. 
-  Using a very common MacBook screen size as reference.
-
-  Create theme variations: 
-  - strictly from Figma
-  - with design suggestions (would include dark/light mode)
-  */
-
   display: grid;
   grid-template-rows: var(--main-header-height) 1fr;
   min-height: 100vh;
@@ -28,35 +9,38 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #f2f4f7;
+    overflow: hidden;
+    animation: hero-background-fade-in 0.75s cubic-bezier(0.53, 1.02, 0.41, 1)
+      forwards;
+
+    @keyframes hero-background-fade-in {
+      0% {
+        background-color: #f2f4f7;
+      }
+      100% {
+        background-color: #fff;
+      }
+    }
 
     &::before {
       content: "";
       position: absolute;
       width: var(--main-header-height);
       height: 100%;
-      background: #f2f4f7 url("../assets/images/hero.svg") center 13px no-repeat;
+      background: url("../assets/images/hero.svg") center 13px no-repeat;
       transform-origin: 33.3% 33.3%;
       transform: scale(10);
       color: #f2f4f7;
-      animation: hero-background-scale-down 0.75s
-        cubic-bezier(0.53, 1.02, 0.41, 1) forwards 0.125s;
+      animation: hero-image-scale-down 0.75s cubic-bezier(0.53, 1.02, 0.41, 1)
+        forwards;
     }
 
-    &:active::before {
-      animation: hero-background-scale-down 0.75s ease-out backwards;
-    }
-
-    &:active h1 span {
-      animation: hero-title-slide-up 0.75s ease-out backwards;
-    }
-
-    @keyframes hero-background-scale-down {
+    @keyframes hero-image-scale-down {
       0% {
-        background-color: #f2f4f7;
         transform: scale(10);
       }
       100% {
-        background-color: #fff;
         transform: scale(1);
       }
     }
@@ -74,23 +58,23 @@
       opacity: 0;
       transform: scale(1, 8) translateY(100%);
       animation: hero-title-slide-up 0.375s cubic-bezier(0.53, 1.02, 0.41, 0.95)
-        forwards 0.25s;
-    }
-
-    span:nth-child(2) {
-      animation-delay: 0.375s;
-    }
-
-    span:nth-child(3) {
-      animation-delay: 0.45s;
-    }
-
-    span:nth-child(4) {
-      animation-delay: 0.5s;
+        forwards 0.125s;
     }
 
     span + span {
       margin-left: 0.25em;
+    }
+
+    span:nth-child(2) {
+      animation-delay: 0.25s;
+    }
+
+    span:nth-child(3) {
+      animation-delay: 0.325s;
+    }
+
+    span:nth-child(4) {
+      animation-delay: 0.375s;
     }
 
     @keyframes hero-title-slide-up {
@@ -114,6 +98,7 @@
     justify-content: flex-start;
     height: 100%;
     background: #1e272e;
+    padding: 56px;
   }
 
   nav {
@@ -122,7 +107,8 @@
     align-items: center;
     list-style: none;
     font-weight: 400;
-    height: 144px;
+    height: 32px;
+    margin-bottom: 72px;
 
     a {
       color: #abaeb0;

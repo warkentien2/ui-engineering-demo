@@ -1,1 +1,49 @@
-div.individual div.card { margin: 0px auto; width: 300px; }
+:host .card {
+  padding: 36px;
+  width: 614px;
+  background: #2b343b;
+  border: 1px solid #384047;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.11);
+  border-radius: 10px;
+  margin: auto;
+  display: grid;
+  grid-template-rows: 300px 166px;
+  transform: translateY(5px);
+  animation: reveal-individual-card 0.5s ease-out forwards;
+
+  @keyframes reveal-individual-card {
+    0% {
+      transform: translateY(5px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  .card-img-top {
+    border-radius: 100px;
+    background: #fff;
+    margin: auto;
+  }
+
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    color: #fff;
+    font-weight: 400;
+  }
+
+  .card-title {
+    font-size: 36px;
+    color: inherit;
+    text-align: center;
+  }
+
+  .card-subtitle {
+    font-size: 18px;
+    color: inherit;
+    word-spacing: 20px;
+  }
+}

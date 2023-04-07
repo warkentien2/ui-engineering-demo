@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { CharactersComponent } from './characters/characters.component';
 import { EpisodesComponent } from './episodes/episodes.component';
 import { IndividualComponent } from './individual/individual.component';
+import { ReplaceHyphenPipe } from './replace-hyphen.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     CharactersComponent,
     EpisodesComponent,
-    IndividualComponent
+    IndividualComponent,
+    ReplaceHyphenPipe
   ],
   imports: [
     BrowserModule,

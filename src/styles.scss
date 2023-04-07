@@ -1,7 +1,75 @@
 /* You can add global styles to this file, and also import other style files */
 
+:root {
+  --main-header-height: 260px;
+  /* 
+  Note: I don't like this size (based on Figma's pixel height)
+  I would suggest the relative to width height: (also from Figma units)
+  header/page-width .: 260/1537 .: 16.9% ~ 17% (17vw)
+
+  Didn't change much
+
+  Second approach: 
+  considering that the largest vertical element is the Character block.
+  I would suggest a aesthetically pleasing 1/3 space for the largest element, 
+  leaving the rest for header + empty space. 
+  Using a very common MacBook screen size as reference.
+
+  Create theme variations: 
+  - strictly from Figma
+  - with design suggestions (would include dark/light mode)
+  */
+
+  --font-family: "Metropolis", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  --font-weight-bold: bold;
+  --font-weight-semibold: 600;
+  --font-weight-medium: 500;
+  --font-weight-regular: 400;
+  --font-size-xxlarge: 38px;
+  --font-size-xlarge: 20px;
+  --font-size-large: 18px;
+  --font-size-base: 16px;
+  --font-size-medium: 14px;
+  --font-size-small: 13px;
+  --font-size-xsmall: 12px;
+  --font-size-xxsmall: 10px;
+  --font-line-height-xlarge: 48px;
+  --font-line-height-large: 24px;
+  --font-line-height-base: 20px;
+  --font-line-height-medium: 18px;
+  --font-line-height-small: 16px;
+  --font-line-height-xsmall: 12px;
+  --font-1: var(--font-weight-bold) var(--font-size-xlarge) /
+    var(--font-line-height-large) var(--font-family);
+  --font-2: var(--font-weight-bold) var(--font-size-large) /
+    var(--font-line-height-large) var(--font-family);
+  --font-3: var(--font-weight-bold) var(--font-size-base) /
+    var(--font-line-height-large) var(--font-family);
+  --font-4: var(--font-weight-medium) var(--font-size-medium) /
+    var(--font-line-height-base) var(--font-family);
+  --font-5: var(--font-weight-semibold) var(--font-size-small) /
+    var(--font-line-height-small) var(--font-family);
+  --font-5b: var(--font-weight-medium) var(--font-size-small) /
+    var(--font-line-height-medium) var(--font-family);
+  --font-5c: var(--font-weight-regular) var(--font-size-small) /
+    var(--font-line-height-medium) var(--font-family);
+  --font-6: var(--font-weight-semibold) var(--font-size-xsmall) /
+    var(--font-line-height-small) var(--font-family);
+  --font-7: var(--font-weight-regular) var(--font-size-medium) /
+    var(--font-line-height-base) var(--font-family);
+  --font-8: var(--font-weight-regular) var(--font-size-xsmall) /
+    var(--font-line-height-small) var(--font-family);
+  --font-9: var(--font-weight-semibold) var(--font-size-medium) /
+    var(--font-line-height-base) var(--font-family);
+  --font-10: var(--font-weight-semibold) var(--font-size-xxsmall) /
+    var(--font-line-height-xsmall) var(--font-family);
+  --font-11: var(--font-weight-bold) var(--font-size-xxlarge) /
+    var(--font-line-height-xlarge) var(--font-family);
+}
+
 body {
-  font-family: "Metropolis", Helvetica, Arial, sans-serif;
+  font-family: var(--font-family);
   font-style: normal;
 
   margin: 0;
@@ -9,9 +77,20 @@ body {
   grid-template-rows: 1fr;
   min-height: 100vh;
   min-height: 100dvh;
+  background: #1e272e;
 
   &,
   * {
     position: relative;
+    box-sizing: border-box;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: calc(var(--main-header-height) * 2);
+    top: calc(-1 * var(--main-header-height));
+    background-color: #fff;
   }
 }
