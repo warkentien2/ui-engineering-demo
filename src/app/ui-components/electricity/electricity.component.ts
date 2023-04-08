@@ -1,4 +1,6 @@
-import { Component, OnInit, ElementRef, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, Output, ElementRef, EventEmitter, ViewEncapsulation, OnDestroy } from '@angular/core';
+import { SharedService } from '../../shared.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'cu-mini-project-electricity',
@@ -6,7 +8,11 @@ import { Component, OnInit, ElementRef, ViewEncapsulation } from '@angular/core'
   styleUrls: ['./electricity.component.scss'],
   encapsulation: ViewEncapsulation.Emulated,
 })
-export class ElectricityComponent implements OnInit {
+export class ElectricityComponent implements OnInit, OnDestroy {
+  @Output() childClick = new EventEmitter<void>();
+
+  private subscription: Subscription;
+  private isAnimating = false;
   private paths = [
     'M2 13.1785C11.6 18.7785 39.5 19.1785 28 32.1785C16.5 45.1785 39.5 49.1785 41 38.1785C42.5 27.1785 46.5 38.1785 51 38.1785C55.5 38.1785 54.8457 29.9816 59 26.1785C63.253 22.285 69.3537 24.3014 72 19.1785C74.1507 15.0149 67.5012 8.49066 72 7.17849C75.749 6.08503 77.4112 10.2546 80 13.1785C83.7065 17.3649 85.219 20.6419 86 26.1785',
     'M75.5 34.5C92 41 75.5 44.5 75.5 48C75.5 51.5 82 55 86 49.5C90 44 99.5 52.5 101 49.5C102.5 46.5 91.3432 32.7811 86 31C74 27 78.3537 13.6229 81 8.5C83.1507 4.33639 91.5 1.49999 99 3C102.829 3.76588 115.5 13.0001 111 18C107.26 22.1561 103.719 20.9634 104.5 26.5001',
@@ -29,12 +35,21 @@ export class ElectricityComponent implements OnInit {
   defaultStrokeWidth = 4;
   strokeWidth = this.defaultStrokeWidth;
 
-  constructor(private elRef: ElementRef) {}
+  constructor(private elRef: ElementRef, private sharedService: SharedService) {}
 
   ngOnInit(): void {
     setTimeout(() => {
-      this.animatePath(0, 125);
+      this.tryAnimation(0, 125);
     }, 750);
+    this.subscription = this.sharedService.triggerChild$.subscribe(() => {
+      if (!Boolean(this.isAnimating)) {
+        this.tryAnimation(0, 125);
+      }
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
   interpolateValuesToString(start: number, end: number, progress: number): string {
@@ -68,9 +83,18 @@ export class ElectricityComponent implements OnInit {
     return newPathArray.join(' ');
   }
 
+  tryAnimation(index, duration): void {
+    if (Boolean(this.isAnimating)) {
+      return;
+    }
+
+    this.isAnimating = true;
+    this.animatePath(index, duration);
+  }
+
   animatePath(index, duration): void {
     const startTime = performance.now();
-    const drawAnimationDuration = duration * 1.5;
+    const drawAnimationDuration = duration * 1.75;
     let path1;
     let path2;
     let pathLength;
@@ -129,9 +153,12 @@ export class ElectricityComponent implements OnInit {
       }
 
       if (progress < 1) {
+        console.log('progress');
         requestAnimationFrame(animate);
       } else if (index + 1 <= this.paths.length) {
         this.animatePath(index + 1, duration);
+      } else {
+        this.isAnimating = false;
       }
     };
 

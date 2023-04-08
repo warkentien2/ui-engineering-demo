@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-
+import { SharedService } from './shared.service';
 @Component({
   selector: 'cu-mini-project-root',
   templateUrl: './app.component.html',
@@ -11,7 +11,7 @@ export class AppComponent implements OnInit {
   characterPage = 1;
   characterNameSearch = '';
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private sharedService: SharedService) { }
 
   ngOnInit(): void {
     this.route.queryParams
@@ -24,5 +24,9 @@ export class AppComponent implements OnInit {
         }
         if (params.nameSearch) { this.characterNameSearch = params.nameSearch; }
       });
+  }
+
+  onClick(): void {
+    this.sharedService.triggerChildFunction();
   }
 }
