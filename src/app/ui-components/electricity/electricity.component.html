@@ -1,0 +1,56 @@
+<svg
+  aria-hidden="true"
+  width="753"
+  height="96"
+  viewBox="0 0 753 96"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  (click)="animatePath(0, 125)"
+>
+  <path
+    [attr.d]="path"
+    stroke="turquoise"
+    [attr.stroke-width]="strokeWidth + 3"
+    [attr.stroke-dasharray]="strokeDashArray"
+    [attr.stroke-dashoffset]="strokeDashOffset"
+    stroke-linecap="round"
+  />
+  <path
+    [attr.d]="path"
+    stroke="dodgerblue"
+    [attr.stroke-width]="strokeWidth + 1"
+    filter="url(#blur)"
+    [attr.stroke-dasharray]="strokeDashArray"
+    [attr.stroke-dashoffset]="strokeDashOffset"
+    stroke-linecap="round"
+  />
+  <path
+    [attr.d]="path"
+    stroke="white"
+    [attr.stroke-width]="strokeWidth"
+    [attr.stroke-dasharray]="strokeDashArray"
+    [attr.stroke-dashoffset]="strokeDashOffset"
+    stroke-linecap="round"
+  />
+  <defs>
+    <filter id="blur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="6" />
+      <feColorMatrix
+        type="matrix"
+        values="0 0 0 0 0
+        0 0 0 0 1
+        0 0 0 0 0.25
+        0 0 0 1 0"
+      />
+      <feComposite
+        in="SourceGraphic"
+        in2="blurOut"
+        operator="arithmetic"
+        k1="0"
+        k2="1"
+        k3="1"
+        k4="0"
+      />
+    </filter>
+  </defs>
+</svg>

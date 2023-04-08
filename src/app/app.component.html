@@ -1,6 +1,7 @@
 <header>
   <h1>
     <span>The</span> <span>Rick</span> <span>and</span> <span>Morty</span>
+    <cu-mini-project-electricity></cu-mini-project-electricity>
   </h1>
 </header>
 
@@ -21,7 +22,9 @@
       <a routerLink="/episodes" class="nav-link">Episode Guide</a>
     </li>
   </nav>
-  <div>
+
+  <router-outlet></router-outlet>
+  <div style="display: none">
     <ul
       style="
         display: flex;
@@ -72,6 +75,4 @@
       </li>
     </ul>
   </div>
-
-  <router-outlet></router-outlet>
 </main>
