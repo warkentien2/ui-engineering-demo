@@ -153,7 +153,6 @@ export class ElectricityComponent implements OnInit, OnDestroy {
       }
 
       if (progress < 1) {
-        console.log('progress');
         requestAnimationFrame(animate);
       } else if (index + 1 <= this.paths.length) {
         this.animatePath(index + 1, duration);
