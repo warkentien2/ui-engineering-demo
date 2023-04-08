@@ -19,7 +19,7 @@ export class CharactersComponent implements OnInit {
     private charactersService: CharactersService,
     private route: ActivatedRoute) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.route.queryParams
       .subscribe(params => {
         if (params.fromPage) {

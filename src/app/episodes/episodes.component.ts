@@ -15,7 +15,7 @@ export class EpisodesComponent implements OnInit {
 
   constructor(private episodesService: EpisodesService) { }
 
-  ngOnInit() { this.getEpisodes(); }
+  ngOnInit(): void { this.getEpisodes(); }
 
   getEpisodes(page = 1): void {
     this.episodesService.getEpisodes(page).subscribe(episodes => {

@@ -14,7 +14,7 @@ export class IndividualComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private charactersService: CharactersService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
     this.getCharacter(id);
   }
