@@ -48,8 +48,12 @@
     cursor: pointer;
   }
 
+  :hover h1 {
+    transform: translateY(-2px);
+  }
+
   :active h1 {
-    transform: scale(0.99);
+    transform: translateY(0) scale(0.99);
   }
 
   h1 {
@@ -108,13 +112,17 @@
   }
 
   nav {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    list-style: none;
-    font-weight: 400;
     height: 32px;
     margin-bottom: 72px;
+
+    ul {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      list-style: none;
+      font-weight: 400;
+      height: 100%;
+    }
 
     a {
       color: #abaeb0;

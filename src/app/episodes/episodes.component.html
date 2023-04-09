@@ -1,17 +1,23 @@
 <ui-table>
+  <colgroup>
+    <col span="4" />
+    <col />
+  </colgroup>
   <tbody *ngIf="episodesCall?.results">
     <tr *ngFor="let e of episodesCall.results">
-      <td>{{ e.name }}</td>
-      <td>{{ e.episode }}</td>
+      <td class="cell-grow">{{ e.name }}</td>
+      <td class="cell-shrink">{{ e.episode }}</td>
     </tr>
   </tbody>
-</ui-table>
 
-<ng-container *ngIf="pages">
-  <span
-    *ngFor="let p of pages"
-    [ngClass]="{ active: p === currentPage }"
-    (click)="getEpisodes(p)"
-    >{{ p }}</span
-  >
-</ng-container>
+  <ng-container *ngIf="pages">
+    <li>
+      <span
+        *ngFor="let p of pages"
+        [ngClass]="{ active: p === currentPage }"
+        (click)="getEpisodes(p)"
+        >{{ p }}</span
+      >
+    </li>
+  </ng-container>
+</ui-table>

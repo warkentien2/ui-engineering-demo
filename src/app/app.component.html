@@ -6,21 +6,23 @@
 </header>
 
 <main>
-  <nav>
-    <li>
-      <a
-        routerLink="/characters"
-        [queryParams]="{
-          fromPage: characterPage,
-          nameSearch: characterNameSearch
-        }"
-        class="nav-link"
-        >Characters</a
-      >
-    </li>
-    <li>
-      <a routerLink="/episodes" class="nav-link">Episode Guide</a>
-    </li>
+  <nav class="navigation-tabs">
+    <ul>
+      <li>
+        <a
+          routerLink="/characters"
+          [queryParams]="{
+            fromPage: characterPage,
+            nameSearch: characterNameSearch
+          }"
+          class="nav-link"
+          >Characters</a
+        >
+      </li>
+      <li>
+        <a routerLink="/episodes" class="nav-link">Episode Guide</a>
+      </li>
+    </ul>
   </nav>
 
   <router-outlet></router-outlet>

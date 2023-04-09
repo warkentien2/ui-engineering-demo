@@ -34,12 +34,12 @@
   --font-size-small: 13px;
   --font-size-xsmall: 12px;
   --font-size-xxsmall: 10px;
-  --font-line-height-xlarge: 48px;
-  --font-line-height-large: 24px;
-  --font-line-height-base: 20px;
-  --font-line-height-medium: 18px;
-  --font-line-height-small: 16px;
-  --font-line-height-xsmall: 12px;
+  --font-line-height-xlarge: 34px;
+  --font-line-height-large: 20px;
+  --font-line-height-base: 14px;
+  --font-line-height-medium: 14px;
+  --font-line-height-small: 14px;
+  --font-line-height-xsmall: 10px;
   --font-1: var(--font-weight-bold) var(--font-size-xlarge) /
     var(--font-line-height-large) var(--font-family);
   --font-2: var(--font-weight-bold) var(--font-size-large) /
@@ -66,6 +66,12 @@
     var(--font-line-height-xsmall) var(--font-family);
   --font-11: var(--font-weight-bold) var(--font-size-xxlarge) /
     var(--font-line-height-xlarge) var(--font-family);
+}
+
+html {
+  hyphenate-character: "-";
+  text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
 }
 
 body {
