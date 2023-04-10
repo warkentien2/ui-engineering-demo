@@ -6,6 +6,6 @@ export class AppPage {
   }
 
   async getTitleText(): Promise<string> {
-    return element(by.css('cu-mini-project .content span')).getText();
+    return element(by.css('ui .content span')).getText();
   }
 }

@@ -1,7 +1,7 @@
 <header (click)="onClick()">
   <h1>
     <span>The</span> <span>Rick</span> <span>and</span> <span>Morty</span>
-    <cu-mini-project-electricity></cu-mini-project-electricity>
+    <ui-electricity></ui-electricity>
   </h1>
 </header>
 
@@ -16,11 +16,14 @@
             nameSearch: characterNameSearch
           }"
           class="nav-link"
+          routerLinkActive="active"
           >Characters</a
         >
       </li>
       <li>
-        <a routerLink="/episodes" class="nav-link">Episode Guide</a>
+        <a routerLink="/episodes" class="nav-link" routerLinkActive="active"
+          >Episode Guide</a
+        >
       </li>
     </ul>
   </nav>

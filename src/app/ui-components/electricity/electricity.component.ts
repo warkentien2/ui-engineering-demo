@@ -3,7 +3,7 @@ import { SharedService } from '../../shared.service';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'cu-mini-project-electricity',
+  selector: 'ui-electricity',
   templateUrl: './electricity.component.html',
   styleUrls: ['./electricity.component.scss'],
   encapsulation: ViewEncapsulation.Emulated,

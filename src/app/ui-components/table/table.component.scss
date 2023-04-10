@@ -96,9 +96,11 @@
 
       li {
         padding: 10px;
+        height: 32px;
       }
 
-      li:hover {
+      li:hover,
+      li.active {
         color: #7b68ee;
       }
 

@@ -122,20 +122,21 @@
       list-style: none;
       font-weight: 400;
       height: 100%;
+      margin: 0;
+    }
+
+    li + li {
+      margin-left: 45px;
     }
 
     a {
       color: #abaeb0;
       text-decoration: none;
       font-size: 32px;
-    }
 
-    li.active a {
-      color: #fff;
-    }
-
-    li + li {
-      margin-left: 45px;
+      &.active {
+        color: #fff;
+      }
     }
   }
 }
