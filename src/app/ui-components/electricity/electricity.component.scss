@@ -4,6 +4,7 @@
   left: -79px;
 
   svg {
-    transform: translateZ(0);
+    transform-origin: 50% 50%;
+    transform: translateZ(0) scaleY(1.2);
   }
 }

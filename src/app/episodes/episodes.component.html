@@ -11,13 +11,12 @@
   </tbody>
 
   <ng-container *ngIf="pages">
-    <li>
-      <span
-        *ngFor="let p of pages"
-        [ngClass]="{ active: p === currentPage }"
-        (click)="getEpisodes(p)"
-        >{{ p }}</span
-      >
+    <li
+      *ngFor="let p of pages"
+      [ngClass]="{ active: p === currentPage }"
+      (click)="getEpisodes(p)"
+    >
+      {{ p }}
     </li>
   </ng-container>
 </ui-table>
