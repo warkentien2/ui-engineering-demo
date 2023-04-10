@@ -11,7 +11,7 @@
     <button (click)="getCharacters(1)">Search</button>
   </header>
 
-  <ui-table *ngIf="characterCall">
+  <ui-tabular-list *ngIf="characterCall">
     <tbody *ngIf="characterCall.results">
       <tr
         *ngFor="let c of characterCall.results"
@@ -34,5 +34,5 @@
         {{ p }}
       </li>
     </ng-container>
-  </ui-table>
+  </ui-tabular-list>
 </section>

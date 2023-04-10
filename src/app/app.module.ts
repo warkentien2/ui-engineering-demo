@@ -8,7 +8,7 @@ import { CharactersComponent } from './characters/characters.component';
 import { EpisodesComponent } from './episodes/episodes.component';
 import { IndividualComponent } from './individual/individual.component';
 import { ReplaceHyphenPipe } from './replace-hyphen.pipe';
-import { TableComponent } from './ui-components/table/table.component';
+import { TabularListComponent } from './ui-components/tabular-list/tabular-list.component';
 import { ElectricityComponent } from './ui-components/electricity/electricity.component';
 
 @NgModule({
@@ -18,7 +18,7 @@ import { ElectricityComponent } from './ui-components/electricity/electricity.co
     EpisodesComponent,
     IndividualComponent,
     ReplaceHyphenPipe,
-    TableComponent,
+    TabularListComponent,
     ElectricityComponent
   ],
   imports: [
