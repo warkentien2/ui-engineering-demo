@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, ElementRef, EventEmitter, ViewEncapsulation, OnDestroy } from '@angular/core';
-import { SharedService } from '../../shared.service';
+import { SharedService } from '../../services/shared.service';
 import { Subscription } from 'rxjs';
 
 @Component({

@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { SharedService } from './shared.service';
+import { SharedService } from './services/shared.service';
 @Component({
   selector: 'ui-root',
   templateUrl: './app.component.html',
