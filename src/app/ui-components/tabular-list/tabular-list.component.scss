@@ -18,6 +18,10 @@
     }
   }
 
+  &[data-read-only] table {
+    pointer-events: none;
+  }
+
   ::ng-deep {
     thead,
     tbody,

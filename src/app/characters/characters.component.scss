@@ -1,32 +1,63 @@
-:host .characters {
+:host {
   display: grid;
   grid-gap: 40px;
-  grid-template-rows: 40px 1fr;
+  grid-template-rows: 1fr;
   grid-template-columns: 1002px;
 
-  header {
+  .characters {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 24px;
+    flex-direction: column;
 
-    input,
-    button {
-      height: 44px;
-      border-radius: 6px;
-      border: none;
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 40px;
+
+      input,
+      button {
+        height: 44px;
+        border-radius: 6px;
+        border: none;
+      }
+
+      input {
+        flex-grow: 1;
+        padding: 13px 17px;
+      }
+
+      button {
+        width: 212px;
+        background: #7b68ee;
+        color: white;
+        cursor: pointer;
+      }
     }
 
-    input {
-      flex-grow: 1;
-      padding: 13px 17px;
+    ui-tabular-list {
+      transform: translateY(-42px);
+      animation: reveal-header 0.125s ease-out forwards;
     }
 
-    button {
-      width: 212px;
-      background: #7b68ee;
-      color: white;
-      cursor: pointer;
+    @keyframes reveal-header {
+      to {
+        transform: translateY(0);
+      }
+    }
+
+    .characters-filter {
+      opacity: 0;
+      animation: characters-filter-reveal 0.375s ease-out forwards 0.125s;
+    }
+
+    @keyframes characters-filter-reveal {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
     }
   }
 }
