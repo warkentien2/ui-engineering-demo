@@ -2,7 +2,7 @@
   display: grid;
   grid-gap: 1.625rem;
   grid-template-rows: auto 1.125rem;
-  grid-template-columns: 62.625rem;
+  grid-template-columns: min(62.625rem, calc(100vi - 2rem));
   font: var(--font-6);
   color: white;
 
@@ -62,11 +62,15 @@
 
     th,
     td {
-      padding-block: 0.75rem;
+      min-block-size: 2.375rem;
+      padding-block: 0.5rem;
       padding-inline: 1rem 0.75rem;
       border: none;
       inline-size: 8.5rem;
       font: var(--font-5);
+      line-height: 1.25rem;
+      display: flex;
+      align-items: center;
 
       &:first-child {
         border-radius: 0.1875rem 0 0 0.1875rem;

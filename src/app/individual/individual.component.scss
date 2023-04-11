@@ -1,13 +1,14 @@
 :host .card {
-  padding: 2.25rem;
-  inline-size: 38.375rem;
+  padding-block: 2.25rem 0.625rem;
+  padding-inline: 2.25rem;
+  inline-size: min(38.375rem, calc(100vi - 2rem));
   background: var(--bg-primary);
   border: 0.0625rem solid var(--bg-primary-hover);
   box-shadow: 0rem 0.0625rem 0.1875rem rgba(0, 0, 0, 0.11);
   border-radius: 0.625rem;
   margin: auto;
   display: grid;
-  grid-template-rows: 18.75rem 10.375rem;
+  grid-template-rows: 18.75rem 12.25rem;
   transform: translateY(0.3125rem);
   animation: reveal-individual-card 0.5s ease-out forwards;
 
@@ -36,6 +37,7 @@
 
   .card-title {
     font: var(--font-2);
+    line-height: 1.125em;
     color: inherit;
     text-align: center;
   }

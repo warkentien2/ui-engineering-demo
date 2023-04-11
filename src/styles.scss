@@ -8,24 +8,6 @@
   // writing-mode: vertical-rl;
   // font-size: 24px; /* try other base font sizes */
 
-  /* 
-  Note: I don't like this size (based on Figma's pixel height)
-  I would suggest the relative to width height: (also from Figma units)
-  header/page-width .: 260/1537 .: 16.9% ~ 17% (17vw)
-
-  Didn't change much
-
-  Second approach: 
-  considering that the largest vertical element is the Character block.
-  I would suggest a aesthetically pleasing 1/3 space for the largest element, 
-  leaving the rest for header + empty space. 
-  Using a very common MacBook screen size as reference.
-
-  Create theme variations: 
-  - strictly from Figma
-  - with design suggestions (would include dark/light mode)
-  */
-
   /* Normalized font heights */
 
   --font-family: "Metropolis", -apple-system, BlinkMacSystemFont, "Segoe UI",
