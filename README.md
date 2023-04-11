@@ -1,3 +1,17 @@
+# Notes to the team:
+
+1. There's a Gear FAB that can be used for live debugging
+2. I covered some Accessibility, Responsiveness, Theming, Localization, and Minimizing Layout Shift.
+3. Added animations to show how I would approach one
+4. Rounded every odd pixel to the nearest even. Centered misaligned elements from the Figma doc.
+5. Used a different font, explained on the [fonts file](src/assets/fonts/fonts.scss)
+6. First time with this version of Angular (only played with the old Angular.js, 8+ years ago):
+   - so, not all decisions might be up to standard with the Angular community
+   - I might have introduced a few bugs. Happy to tackle them later
+7. I have a backlog of pending improvements for this code, but I had to stop somewhere
+
+\*\* If you run into an issue running `$ yarn install` try `$ npm install`. (node version v18.10.0)
+
 # ClickUp UI/UX Engineer Mini Project
 
 ## Introduction
@@ -27,9 +41,3 @@ If you have any questions regarding this exercise, please contact your recruiter
 Thanks again for your time and we're looking forward to seeing your final project!
 
 ClickUp Crew
-
----
-
-Notes.:
-
-- Used tslist to avoid escaping the scope of the assignment. Would reccomend migrating to eslint [migration walkthrough](https://medium.com/@bhavinmatariya99/painless-migration-of-tslint-to-eslint-angular-b25da240320c)
