@@ -32,17 +32,16 @@
     justify-content: space-evenly;
     align-items: center;
     color: #fff;
-    font-weight: 400;
   }
 
   .card-title {
-    font-size: 2.25rem;
+    font: var(--font-2);
     color: inherit;
     text-align: center;
   }
 
   .card-subtitle {
-    font-size: 1.125rem;
+    font: var(--font-4);
     color: inherit;
     word-spacing: 1.25rem;
   }

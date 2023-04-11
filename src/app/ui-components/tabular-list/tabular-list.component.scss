@@ -3,8 +3,7 @@
   grid-gap: 1.625rem;
   grid-template-rows: auto 1.125rem;
   grid-template-columns: 62.625rem;
-  font-size: 0.875rem;
-  line-height: 0.875rem;
+  font: var(--font-6);
   color: white;
 
   table {
@@ -67,6 +66,7 @@
       padding-inline: 1rem 0.75rem;
       border: none;
       inline-size: 8.5rem;
+      font: var(--font-5);
 
       &:first-child {
         border-radius: 0.1875rem 0 0 0.1875rem;

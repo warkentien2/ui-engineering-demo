@@ -62,8 +62,7 @@
   }
 
   h1 {
-    font-weight: 700;
-    font-size: 4rem;
+    font: var(--font-1);
     transform-origin: 50% 50%;
     transition: all 0.25s cubic-bezier(0.32, 0.29, 0.27, 0.99);
 
@@ -140,7 +139,7 @@
     a {
       color: #abaeb0;
       text-decoration: none;
-      font-size: 2rem;
+      font: var(--font-3);
 
       &.active {
         color: #fff;
