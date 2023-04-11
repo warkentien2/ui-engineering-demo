@@ -107,36 +107,4 @@
       }
     }
   }
-
-  .table-pagination {
-    display: flex;
-    justify-content: center;
-
-    ::ng-deep {
-      ul {
-        display: flex;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        cursor: pointer;
-      }
-
-      li {
-        padding: 0.625rem;
-        block-size: 2rem;
-      }
-
-      li:hover,
-      li.active {
-        color: var(--text-accent);
-      }
-
-      /* (Progressive enhancement)
-        hide .table-pagination if it has only a single child (page 1).
-      */
-      &:has(li:only-child) {
-        display: none;
-      }
-    }
-  }
 }

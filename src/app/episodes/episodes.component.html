@@ -6,17 +6,11 @@
     </tr>
   </tbody>
 
-  <ng-container *ngIf="pages">
-    <li
-      *ngFor="let p of pages"
-      [ngClass]="{ active: p === currentPage }"
-      [aria-pressed]="p === currentPage ? 'true' : 'false'"
-      (click)="getEpisodes(p)"
-      (keydown.enter)="getEpisodes(p)"
-      role="button"
-      tabindex="0"
-    >
-      {{ p }}
-    </li>
-  </ng-container>
+  <ui-pagination
+    *ngIf="pages"
+    [currentPage]="currentPage"
+    [totalPages]="episodesCall.info.pages"
+    [pages]="pages"
+    (pageChange)="getEpisodes($event)"
+  ></ui-pagination>
 </ui-tabular-list>

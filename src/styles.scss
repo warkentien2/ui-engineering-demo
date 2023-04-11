@@ -45,13 +45,31 @@
   --bg-primary: #2b343b;
   --bg-primary-hover: #384047;
   --bg-secondary: #fff;
+  --bg-secondary-muted: #7c828d;
   --bg-accent: #7b68ee;
   --bg-hero: #f2f4f7;
   --text-primary: #fff;
   --text-primary-muted: #abaeb0;
   --text-secondary: #292d34;
+  --text-secondary-muted: #384047;
   --text-placeholder: #7c828d;
   --text-accent: #7b68ee;
+
+  @media (prefers-color-scheme: light) {
+    --backdrop: #fff;
+    --bg-primary: #f4f4f4;
+    --bg-primary-hover: #fff;
+    --bg-secondary: #efefef;
+    --bg-secondary-muted: #2b343b;
+    --bg-accent: #7b68ee;
+    --bg-hero: #f3f3f3;
+    --text-primary: #090d14;
+    --text-primary-muted: #788087;
+    --text-secondary: #abaeb0;
+    --text-secondary-muted: #fff;
+    --text-placeholder: #7c828d;
+    --text-accent: #7b68ee;
+  }
 }
 
 html {
@@ -83,6 +101,38 @@ html {
     direction: ltr;
     writing-mode: vertical-rl;
   }
+
+  [dark-mode] {
+    --backdrop: #1e272e;
+    --bg-primary: #2b343b;
+    --bg-primary-hover: #384047;
+    --bg-secondary: #fff;
+    --bg-secondary-muted: #7c828d;
+    --bg-accent: #7b68ee;
+    --bg-hero: #f2f4f7;
+    --text-primary: #fff;
+    --text-primary-muted: #abaeb0;
+    --text-secondary: #292d34;
+    --text-secondary-muted: #384047;
+    --text-placeholder: #7c828d;
+    --text-accent: #7b68ee;
+  }
+
+  [light-mode] {
+    --backdrop: #fff;
+    --bg-primary: #f4f4f4;
+    --bg-primary-hover: #fff;
+    --bg-secondary: #efefef;
+    --bg-secondary-muted: #2b343b;
+    --bg-accent: #7b68ee;
+    --bg-hero: #f3f3f3;
+    --text-primary: #090d14;
+    --text-primary-muted: #788087;
+    --text-secondary: #abaeb0;
+    --text-secondary-muted: #fff;
+    --text-placeholder: #7c828d;
+    --text-accent: #7b68ee;
+  }
 }
 
 body {
@@ -105,11 +155,31 @@ body {
   }
 
   input[type="text"] {
-    background-color: var(--bg-secondary);
-    color: var(--text-secondary);
+    &,
+    [dark-mode] & {
+      background-color: var(--bg-secondary);
+      color: var(--text-secondary);
 
-    &::placeholder {
-      color: var(--text-placeholder);
+      &::placeholder {
+        color: var(--text-placeholder);
+      }
+    }
+
+    @mixin lightModeStyles {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+
+      &::placeholder {
+        color: var(--text-placeholder);
+      }
+    }
+
+    @media (prefers-color-scheme: light) {
+      @include lightModeStyles;
+    }
+
+    [light-mode] & {
+      @include lightModeStyles;
     }
   }
 }

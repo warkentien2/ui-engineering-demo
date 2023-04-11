@@ -32,18 +32,12 @@
       </tr>
     </tbody>
 
-    <ng-container *ngIf="pages">
-      <li
-        *ngFor="let p of pages"
-        [ngClass]="{ active: p === currentPage }"
-        [aria-pressed]="p === currentPage ? 'true' : 'false'"
-        (click)="getCharacters(p)"
-        (keydown.enter)="getCharacters(p)"
-        role="button"
-        tabindex="0"
-      >
-        {{ p }}
-      </li>
-    </ng-container>
+    <ui-pagination
+      *ngIf="pages"
+      [currentPage]="currentPage"
+      [totalPages]="characterCall.info.pages"
+      [pages]="pages"
+      (pageChange)="getCharacters($event)"
+    ></ui-pagination>
   </ui-tabular-list>
 </section>

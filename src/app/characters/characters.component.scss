@@ -30,13 +30,24 @@
         padding-inline: 1.0625rem;
       }
 
-      button {
+      button,
+      [dark-mode] button {
         inline-size: 13.25rem;
         background: var(--bg-accent);
         color: var(--text-primary);
         cursor: pointer;
         outline-color: var(--text-primary);
         flex: 1 1 4rem;
+
+        @media (prefers-color-scheme: light) {
+          color: var(--text-secondary-muted);
+          outline-color: var(--text-primary);
+        }
+
+        [light-mode] & {
+          color: var(--text-secondary-muted);
+          outline-color: var(--text-primary);
+        }
       }
     }
 
