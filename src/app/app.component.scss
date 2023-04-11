@@ -28,7 +28,8 @@
       position: absolute;
       inline-size: var(--main-header-block-size);
       block-size: 100%;
-      background: url("../assets/images/hero.svg") center 13px no-repeat;
+      background: url("../assets/images/hero.svg") center 0.8125rem no-repeat;
+      background-size: 100%;
       transform-origin: 33.3% 33.3%;
       transform: scale(10);
       color: #f2f4f7;
@@ -49,7 +50,7 @@
   }
 
   :hover h1 {
-    transform: translateY(-2px);
+    transform: translateY(-0.125rem);
   }
 
   :active h1 {
@@ -58,7 +59,7 @@
 
   h1 {
     font-weight: 700;
-    font-size: 64px;
+    font-size: 4rem;
     transform-origin: 50% 50%;
     transition: all 0.25s cubic-bezier(0.32, 0.29, 0.27, 0.99);
 
@@ -108,14 +109,14 @@
     justify-content: flex-start;
     block-size: 100%;
     background: #1e272e;
-    padding-block: 56px;
-    padding-inline: 16px;
+    padding-block: 3.5rem;
+    padding-inline: 1rem;
     block-size: 100%;
   }
 
   nav {
-    block-size: 32px;
-    margin-block-end: 72px;
+    block-size: 2rem;
+    margin-block-end: 4.5rem;
 
     ul {
       display: flex;
@@ -129,13 +130,13 @@
     }
 
     li + li {
-      margin-inline-start: 45px;
+      margin-inline-start: 2.8125rem;
     }
 
     a {
       color: #abaeb0;
       text-decoration: none;
-      font-size: 32px;
+      font-size: 2rem;
 
       &.active {
         color: #fff;

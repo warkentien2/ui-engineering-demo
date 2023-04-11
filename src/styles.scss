@@ -1,11 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 
 :root {
-  --main-header-block-size: 260px;
+  --main-header-block-size: 16.25rem;
   color-scheme: dark; /* try light */
   direction: ltr; /* try rtl */
   writing-mode: horizontal-tb; /* try vertical-rl (with direction: ltr) */
   // writing-mode: vertical-rl;
+  // font-size: 24px; /* try other base font sizes */
 
   /* 
   Note: I don't like this size (based on Figma's pixel height)
@@ -31,20 +32,20 @@
   --font-weight-semibold: 600;
   --font-weight-medium: 500;
   --font-weight-regular: 400;
-  --font-size-xxlarge: 38px;
-  --font-size-xlarge: 20px;
-  --font-size-large: 18px;
-  --font-size-base: 16px;
-  --font-size-medium: 14px;
-  --font-size-small: 13px;
-  --font-size-xsmall: 12px;
-  --font-size-xxsmall: 10px;
-  --font-line-height-xlarge: 34px;
-  --font-line-height-large: 20px;
-  --font-line-height-base: 14px;
-  --font-line-height-medium: 14px;
-  --font-line-height-small: 14px;
-  --font-line-height-xsmall: 10px;
+  --font-size-xxlarge: 2.375rem;
+  --font-size-xlarge: 1.25rem;
+  --font-size-large: 1.125rem;
+  --font-size-base: 1rem;
+  --font-size-medium: 0.875rem;
+  --font-size-small: 0.8125rem;
+  --font-size-xsmall: 0.75rem;
+  --font-size-xxsmall: 0.625rem;
+  --font-line-height-xlarge: 2.125rem;
+  --font-line-height-large: 1.25rem;
+  --font-line-height-base: 0.875rem;
+  --font-line-height-medium: 0.875rem;
+  --font-line-height-small: 0.875rem;
+  --font-line-height-xsmall: 0.625rem;
   --font-1: var(--font-weight-bold) var(--font-size-xlarge) /
     var(--font-line-height-large) var(--font-family);
   --font-2: var(--font-weight-bold) var(--font-size-large) /
