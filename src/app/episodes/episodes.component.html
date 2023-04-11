@@ -10,7 +10,11 @@
     <li
       *ngFor="let p of pages"
       [ngClass]="{ active: p === currentPage }"
+      [aria-pressed]="p === currentPage ? 'true' : 'false'"
       (click)="getEpisodes(p)"
+      (keydown.enter)="getEpisodes(p)"
+      role="button"
+      tabindex="0"
     >
       {{ p }}
     </li>
