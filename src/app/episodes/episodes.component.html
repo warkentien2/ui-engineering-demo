@@ -1,10 +1,6 @@
-<ui-tabular-list data-read-only>
-  <colgroup>
-    <col span="4" />
-    <col />
-  </colgroup>
+<ui-tabular-list no-hover>
   <tbody *ngIf="episodesCall?.results">
-    <tr *ngFor="let e of episodesCall.results">
+    <tr *ngFor="let e of episodesCall.results" tabindex="0">
       <td class="cell-grow">{{ e.name }}</td>
       <td class="cell-shrink">{{ e.episode }}</td>
     </tr>

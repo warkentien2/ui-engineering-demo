@@ -17,10 +17,6 @@
     }
   }
 
-  &[data-read-only] table {
-    pointer-events: none;
-  }
-
   ::ng-deep {
     thead,
     tbody,
@@ -35,29 +31,11 @@
       display: flex;
       border-radius: 0.1875rem;
       transition: all 0.2s cubic-bezier(0.31, 0.95, 0.35, 1);
-      cursor: pointer;
       background: var(--bg-primary);
-
-      &:hover {
-        background: var(--bg-primary-hover);
-        color: var(--text-accent);
-        transition: all 0s;
-      }
-
-      &:active {
-        transform: translateY(0.0625rem);
-      }
     }
 
     tr + tr {
       margin-block-start: 0.0625rem;
-
-      &:active {
-        transform: translateY(0.0625rem);
-        border-block-start: transparent;
-        box-shadow: 0 -0.0625rem 0 var(--backdrop), var(--tr-shadow),
-          inset 0 0.125rem 0.25rem -0.125rem var(--backdrop);
-      }
     }
 
     th,
@@ -87,6 +65,31 @@
 
     .cell-shrink {
       flex: 0;
+    }
+  }
+
+  &:not([no-hover]) ::ng-deep {
+    tr {
+      cursor: pointer;
+
+      &:hover {
+        background: var(--bg-primary-hover);
+        color: var(--text-accent);
+        transition: all 0s;
+      }
+
+      &:active {
+        transform: translateY(0.0625rem);
+      }
+    }
+
+    tr + tr {
+      &:active {
+        transform: translateY(0.0625rem);
+        border-block-start: transparent;
+        box-shadow: 0 -0.0625rem 0 var(--backdrop), var(--tr-shadow),
+          inset 0 0.125rem 0.25rem -0.125rem var(--backdrop);
+      }
     }
   }
 

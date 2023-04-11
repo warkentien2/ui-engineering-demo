@@ -17,6 +17,7 @@
         *ngFor="let c of characterCall.results"
         [routerLink]="['/character', c.id]"
         [queryParams]="{ fromPage: currentPage, nameSearch: searchTerm }"
+        tabindex="0"
       >
         <td class="cell-grow">{{ c.name }}</td>
         <td>{{ c.species }}</td>
