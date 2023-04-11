@@ -1,8 +1,8 @@
 :host .card {
   padding: 2.25rem;
   inline-size: 38.375rem;
-  background: #2b343b;
-  border: 0.0625rem solid #384047;
+  background: var(--bg-primary);
+  border: 0.0625rem solid var(--bg-primary-hover);
   box-shadow: 0rem 0.0625rem 0.1875rem rgba(0, 0, 0, 0.11);
   border-radius: 0.625rem;
   margin: auto;
@@ -22,7 +22,7 @@
 
   .card-img {
     border-radius: 6.25rem;
-    background: #fff;
+    background: var(--bg-secondary);
     margin: auto;
   }
 
@@ -31,7 +31,7 @@
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    color: #fff;
+    color: var(--text-primary);
   }
 
   .card-title {

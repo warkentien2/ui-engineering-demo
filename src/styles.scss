@@ -56,6 +56,19 @@
     var(--font-line-height-base) var(--font-family);
   --font-6: var(--font-weight-regular) var(--font-size-small) /
     var(--font-line-height-small) var(--font-family);
+
+  /* Colors */
+
+  --backdrop: #1e272e;
+  --bg-primary: #2b343b;
+  --bg-primary-hover: #384047;
+  --bg-secondary: #fff;
+  --bg-accent: #7b68ee;
+  --bg-hero: #f2f4f7;
+  --text-primary: #fff;
+  --text-primary-muted: #abaeb0;
+  --text-secondary: #292d34;
+  --text-accent: #7b68ee;
 }
 
 html {
@@ -99,7 +112,7 @@ body {
   min-block-size: 100vh;
   min-block-size: 100dvh;
   min-inline-size: 100dvmin;
-  background: #1e272e;
+  background: var(--backdrop);
 
   &,
   * {
@@ -113,6 +126,6 @@ body {
     inline-size: 100%;
     block-size: calc(var(--main-header-block-size) * 2);
     top: calc(-1 * var(--main-header-block-size));
-    background-color: #fff;
+    background-color: var(--bg-secondary);
   }
 }
