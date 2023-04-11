@@ -14,9 +14,9 @@
     Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   --font-weight-bold: bold;
   --font-weight-regular: 400;
-  --font-size-xxlarge: 4rem;
-  --font-size-xlarge: 2.25rem;
-  --font-size-large: 2rem;
+  --font-size-xxlarge: min(4rem, 10vi);
+  --font-size-xlarge: clamp(1.5rem, 2.25rem, 5.625vi);
+  --font-size-large: clamp(1.25rem, 2rem, 5vi);
   --font-size-medium: 1.125rem;
   --font-size-base: 1rem;
   --font-size-small: 0.875rem;
@@ -93,7 +93,7 @@ body {
   display: grid;
   grid-template-rows: 1fr;
   min-block-size: 100vh;
-  min-block-size: 100dvh;
+  min-block-size: 100dvb;
   min-inline-size: 100dvmin;
   background: var(--backdrop);
 
@@ -111,5 +111,27 @@ body {
     &::placeholder {
       color: var(--text-placeholder);
     }
+  }
+}
+
+/* helper classes */
+
+@media (min-width: 30rem) {
+  .media-sm {
+    display: none !important;
+  }
+
+  .media-lg {
+    display: block !important;
+  }
+}
+
+@media (max-width: 30rem) {
+  .media-sm {
+    display: block !important;
+  }
+
+  .media-lg {
+    display: none !important;
   }
 }

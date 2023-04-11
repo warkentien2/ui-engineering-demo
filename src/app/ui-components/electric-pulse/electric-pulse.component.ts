@@ -3,12 +3,12 @@ import { SharedService } from '../../services/shared.service';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'ui-electricity',
-  templateUrl: './electricity.component.html',
-  styleUrls: ['./electricity.component.scss'],
+  selector: 'ui-electric-pulse',
+  templateUrl: './electric-pulse.component.html',
+  styleUrls: ['./electric-pulse.component.scss'],
   encapsulation: ViewEncapsulation.Emulated,
 })
-export class ElectricityComponent implements OnInit, OnDestroy {
+export class ElectricPulseComponent implements OnInit, OnDestroy {
   @Output() childClick = new EventEmitter<void>();
 
   private subscription: Subscription;

@@ -3,6 +3,7 @@
   grid-gap: 2.5rem;
   grid-template-rows: 1fr;
   grid-template-columns: min(62.625rem, calc(100vi - 2rem));
+  margin-inline: -1rem;
 
   .characters {
     display: flex;
@@ -24,7 +25,7 @@
       }
 
       input {
-        flex-grow: 1;
+        flex: 4 1 50vi;
         padding-block: 0.8125rem;
         padding-inline: 1.0625rem;
       }
@@ -32,9 +33,10 @@
       button {
         inline-size: 13.25rem;
         background: var(--bg-accent);
-        color: white;
+        color: var(--text-primary);
         cursor: pointer;
         outline-color: var(--text-primary);
+        flex: 1 1 4rem;
       }
     }
 
@@ -78,6 +80,38 @@
       100% {
         opacity: 0;
       }
+    }
+  }
+}
+
+@media (max-width: 30rem) {
+  .characters-filter {
+    gap: 0 !important;
+
+    input {
+      border-start-end-radius: 0 !important;
+      border-end-end-radius: 0 !important;
+    }
+
+    button {
+      border-start-start-radius: 0 !important;
+      border-end-start-radius: 0 !important;
+    }
+  }
+}
+
+@media (max-height: 30rem) {
+  [vertical] .characters-filter {
+    gap: 0 !important;
+
+    input {
+      border-start-end-radius: 0 !important;
+      border-end-end-radius: 0 !important;
+    }
+
+    button {
+      border-start-start-radius: 0 !important;
+      border-end-start-radius: 0 !important;
     }
   }
 }

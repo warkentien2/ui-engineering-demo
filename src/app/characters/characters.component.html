@@ -3,12 +3,16 @@
     <input
       name="name-search"
       placeholder="Search By Name"
+      aria-placeholder="Search Character By Name"
       type="text"
       autocomplete="off"
       [(ngModel)]="searchTerm"
     />
 
-    <button (click)="getCharacters(1)">Search</button>
+    <button (click)="getCharacters(1)" aria-label="Search">
+      <span class="media-sm">🔎</span>
+      <span class="media-lg">Search</span>
+    </button>
   </header>
 
   <ui-tabular-list *ngIf="characterCall">

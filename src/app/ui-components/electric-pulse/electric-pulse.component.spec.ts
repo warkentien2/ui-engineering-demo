@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ElectricityComponent } from './electricity.component';
+import { ElectricPulseComponent } from './electric-pulse.component';
 
-describe('ElectricityComponent', () => {
-  let component: ElectricityComponent;
-  let fixture: ComponentFixture<ElectricityComponent>;
+describe('ElectricPulseComponent', () => {
+  let component: ElectricPulseComponent;
+  let fixture: ComponentFixture<ElectricPulseComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ElectricityComponent ]
+      declarations: [ ElectricPulseComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ElectricityComponent);
+    fixture = TestBed.createComponent(ElectricPulseComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
