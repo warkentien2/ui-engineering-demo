@@ -11,13 +11,15 @@
     <ul>
       <li>
         <a
-          routerLink="/characters"
+          [routerLink]="['/characters']"
+          appActiveLink="/character"
           [queryParams]="{
             fromPage: characterPage,
             nameSearch: characterNameSearch
           }"
           class="nav-link"
           routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: false }"
           >Characters</a
         >
       </li>

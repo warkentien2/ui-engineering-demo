@@ -10,6 +10,7 @@ import { IndividualComponent } from './individual/individual.component';
 import { ReplaceHyphenPipe } from './pipes/replace-hyphen.pipe';
 import { TabularListComponent } from './ui-components/tabular-list/tabular-list.component';
 import { ElectricityComponent } from './ui-components/electricity/electricity.component';
+import { ActiveLinkDirective } from './directives/active-link.directive';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ElectricityComponent } from './ui-components/electricity/electricity.co
     IndividualComponent,
     ReplaceHyphenPipe,
     TabularListComponent,
-    ElectricityComponent
+    ElectricityComponent,
+    ActiveLinkDirective
   ],
   imports: [
     BrowserModule,
