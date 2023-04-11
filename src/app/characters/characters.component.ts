@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, NavigationStart } from '@angular/router';
 import { CharacterApiResponse } from '../api_responses/characterapiresponse';
 import { CharactersService } from '../services/characters.service';
 
@@ -17,6 +17,7 @@ export class CharactersComponent implements OnInit {
 
   constructor(
     private charactersService: CharactersService,
+    private router: Router,
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -26,7 +27,9 @@ export class CharactersComponent implements OnInit {
           this.currentPage = Number(params.fromPage);
           if (Number.isNaN(this.currentPage)) { this.currentPage = 1; }
         }
-        if (params.nameSearch) { this.searchTerm = params.nameSearch; }
+        if (params.nameSearch) {
+          this.searchTerm = params.nameSearch;
+        }
 
         this.getCharacters(this.currentPage);
       });
@@ -37,6 +40,13 @@ export class CharactersComponent implements OnInit {
       this.characterCall = characters;
       this.fillInPageArray(characters.info.pages);
       this.currentPage = page;
+
+      // Update the route
+      const queryParams: any = {
+        fromPage: page,
+        nameSearch: this.searchTerm
+      };
+      this.router.navigate(['/characters'], { queryParams });
     });
   }
 
