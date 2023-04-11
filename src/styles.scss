@@ -1,7 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 
 :root {
-  --main-header-height: 260px;
+  --main-header-block-size: 260px;
+  color-scheme: dark; /* try light */
+  direction: ltr; /* try rtl */
+  writing-mode: horizontal-tb; /* try vertical-rl (with direction: ltr) */
+  // writing-mode: vertical-rl;
+
   /* 
   Note: I don't like this size (based on Figma's pixel height)
   I would suggest the relative to width height: (also from Figma units)
@@ -72,6 +77,36 @@ html {
   hyphenate-character: "-";
   text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
+
+  /* for testing 
+    add attribute to HTML, BODY or any other element.
+  */
+
+  & [dark-color-scheme],
+  [dark-color-scheme] {
+    color-scheme: dark;
+  }
+
+  & [light-color-scheme],
+  [light-color-scheme] {
+    color-scheme: light;
+  }
+
+  & [ltr],
+  [ltr] {
+    direction: ltr;
+  }
+
+  & [rtl],
+  [rtl] {
+    direction: rtl;
+  }
+
+  & [vertical],
+  [vertical] {
+    direction: ltr;
+    writing-mode: vertical-rl;
+  }
 }
 
 body {
@@ -81,8 +116,9 @@ body {
   margin: 0;
   display: grid;
   grid-template-rows: 1fr;
-  min-height: 100vh;
-  min-height: 100dvh;
+  min-block-size: 100vh;
+  min-block-size: 100dvh;
+  min-inline-size: 100dvmin;
   background: #1e272e;
 
   &,
@@ -94,9 +130,9 @@ body {
   &::before {
     content: "";
     position: absolute;
-    width: 100%;
-    height: calc(var(--main-header-height) * 2);
-    top: calc(-1 * var(--main-header-height));
+    inline-size: 100%;
+    block-size: calc(var(--main-header-block-size) * 2);
+    top: calc(-1 * var(--main-header-block-size));
     background-color: #fff;
   }
 }

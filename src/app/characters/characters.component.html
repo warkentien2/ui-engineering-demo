@@ -25,14 +25,11 @@
       </tr>
     </tbody>
 
-    <ng-container *ngIf="pages">
-      <li
-        *ngFor="let p of pages"
-        [ngClass]="{ active: p === currentPage }"
-        (click)="getCharacters(p)"
-      >
-        {{ p }}
-      </li>
-    </ng-container>
+    <ui-pagination
+      *ngIf="pages"
+      [currentPage]="currentPage"
+      [totalPages]="characterCall.info.pages"
+      (pageChange)="getCharacters($event)"
+    ></ui-pagination>
   </ui-tabular-list>
 </section>

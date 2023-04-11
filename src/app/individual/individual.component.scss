@@ -1,6 +1,6 @@
 :host .card {
   padding: 36px;
-  width: 614px;
+  inline-size: 614px;
   background: #2b343b;
   border: 1px solid #384047;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.11);
@@ -20,7 +20,7 @@
     }
   }
 
-  .card-img-top {
+  .card-img {
     border-radius: 100px;
     background: #fff;
     margin: auto;

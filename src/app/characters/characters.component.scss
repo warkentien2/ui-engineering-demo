@@ -13,22 +13,23 @@
       justify-content: space-between;
       align-items: center;
       gap: 24px;
-      margin-bottom: 40px;
+      margin-block-end: 40px;
 
       input,
       button {
-        height: 44px;
+        block-size: 44px;
         border-radius: 6px;
         border: none;
       }
 
       input {
         flex-grow: 1;
-        padding: 13px 17px;
+        padding-block: 13px;
+        padding-inline: 17px;
       }
 
       button {
-        width: 212px;
+        inline-size: 212px;
         background: #7b68ee;
         color: white;
         cursor: pointer;

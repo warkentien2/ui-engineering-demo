@@ -1,11 +1,11 @@
 :host {
   display: grid;
-  grid-template-rows: var(--main-header-height) 1fr;
-  min-height: 100vh;
-  min-height: 100dvh;
+  grid-template-rows: var(--main-header-block-size) 1fr;
+  min-block-size: 100vh;
+  min-block-size: 100dvh;
 
   header {
-    height: var(--main-header-height);
+    block-size: var(--main-header-block-size);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -26,8 +26,8 @@
     &::before {
       content: "";
       position: absolute;
-      width: var(--main-header-height);
-      height: 100%;
+      inline-size: var(--main-header-block-size);
+      block-size: 100%;
       background: url("../assets/images/hero.svg") center 13px no-repeat;
       transform-origin: 33.3% 33.3%;
       transform: scale(10);
@@ -72,7 +72,7 @@
     }
 
     span + span {
-      margin-left: 0.25em;
+      margin-inline-start: 0.25em;
     }
 
     span:nth-child(2) {
@@ -106,14 +106,16 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    height: 100%;
+    block-size: 100%;
     background: #1e272e;
-    padding: 56px;
+    padding-block: 56px;
+    padding-inline: 16px;
+    block-size: 100%;
   }
 
   nav {
-    height: 32px;
-    margin-bottom: 72px;
+    block-size: 32px;
+    margin-block-end: 72px;
 
     ul {
       display: flex;
@@ -121,13 +123,13 @@
       align-items: center;
       list-style: none;
       font-weight: 400;
-      height: 100%;
+      block-size: 100%;
       margin: 0;
       padding: 0;
     }
 
     li + li {
-      margin-left: 45px;
+      margin-inline-start: 45px;
     }
 
     a {
