@@ -50,6 +50,7 @@
   --text-primary: #fff;
   --text-primary-muted: #abaeb0;
   --text-secondary: #292d34;
+  --text-placeholder: #7c828d;
   --text-accent: #7b68ee;
 }
 
@@ -103,12 +104,12 @@ body {
     outline-color: var(--text-accent);
   }
 
-  &::before {
-    content: "";
-    position: absolute;
-    inline-size: 100%;
-    block-size: calc(var(--main-header-block-size) * 2);
-    top: calc(-1 * var(--main-header-block-size));
+  input[type="text"] {
     background-color: var(--bg-secondary);
+    color: var(--text-secondary);
+
+    &::placeholder {
+      color: var(--text-placeholder);
+    }
   }
 }
