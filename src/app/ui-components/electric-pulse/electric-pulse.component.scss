@@ -16,7 +16,7 @@
     filter: hue-rotate(75deg);
   }
 
-  [vertical] & svg {
+  body[vertical] & svg {
     visibility: hidden;
   }
 }

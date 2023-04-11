@@ -1,0 +1,52 @@
+<div class="ui-controls-anchor">
+  <div class="ui-controls" (click)="toggleForm()">
+    <span class="ui-controls-icon" [ngClass]="{ open: showForm }">⚙️</span>
+  </div>
+
+  <div class="ui-controls-form" *ngIf="showForm">
+    <form>
+      <label>
+        <b>Theme:</b>
+        <input type="checkbox" [(ngModel)]="darkMode" [checked]="darkMode" />
+        {{ darkMode ? "Dark Mode" : "Light Mode" }}
+      </label>
+      <small>{{
+        darkMode ? "" : "(buggy checkbox) double click to go Dark"
+      }}</small>
+      <label>
+        <b>Direction:</b>
+        <input
+          type="radio"
+          value="ltr"
+          name="textDirection"
+          [(ngModel)]="textDirection"
+        />
+        LTR
+        <input
+          type="radio"
+          value="rtl"
+          name="textDirection"
+          [(ngModel)]="textDirection"
+        />
+        RTL
+        <input
+          type="radio"
+          value="vertical"
+          name="textDirection"
+          [(ngModel)]="textDirection"
+        />
+        Vertical
+      </label>
+      <label>
+        <b>Base font size:</b>
+        <input type="number" min="8" max="72" [(ngModel)]="baseFontSize" /> px
+      </label>
+      <button (click)="applyChanges()" class="controls-submit">
+        Apply changes
+      </button>
+      <button (click)="closeForm()" class="controls-close" aria-label="close">
+        ✕
+      </button>
+    </form>
+  </div>
+</div>

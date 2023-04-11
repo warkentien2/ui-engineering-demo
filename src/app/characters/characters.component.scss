@@ -116,7 +116,7 @@
 }
 
 @media (max-height: 30rem) {
-  [vertical] .characters-filter {
+  body[vertical] .characters-filter {
     gap: 0 !important;
 
     input {

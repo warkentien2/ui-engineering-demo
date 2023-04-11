@@ -12,6 +12,7 @@ import { TabularListComponent } from './ui-components/tabular-list/tabular-list.
 import { ElectricPulseComponent } from './ui-components/electric-pulse/electric-pulse.component';
 import { PaginationComponent } from './ui-components/pagination/pagination.component';
 import { ActiveLinkDirective } from './directives/active-link.directive';
+import { UiControlsComponent } from './ui-components/ui-controls/ui-controls.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ActiveLinkDirective } from './directives/active-link.directive';
     TabularListComponent,
     ElectricPulseComponent,
     PaginationComponent,
-    ActiveLinkDirective
+    ActiveLinkDirective,
+    UiControlsComponent
   ],
   imports: [
     BrowserModule,

@@ -24,7 +24,7 @@
     }
 
     &::before,
-    [dark-mode] &::before {
+    body[dark-mode] &::before {
       content: "";
       position: absolute;
       inline-size: var(--main-header-block-size);
@@ -38,8 +38,8 @@
         forwards;
     }
 
-    [vertical] &::before,
-    [vertical][dark-mode] &::before {
+    body[vertical] &::before,
+    body[vertical][dark-mode] &::before {
       background: url("../assets/images/hero-vertical.svg") -0.8125rem center no-repeat;
       background-size: 100%;
     }
@@ -53,26 +53,30 @@
       }
     }
 
-    @mixin lightModeHeroStyles {
+    @media (prefers-color-scheme: light) {
       &::before {
         background: url("../assets/images/hero-invert-colors.svg") center
           0.8125rem no-repeat;
         background-size: 100%;
       }
 
-      [vertical] &::before {
+      body[vertical] &::before {
         background: url("../assets/images/hero-vertical-invert-colors.svg") -0.8125rem
           center no-repeat;
         background-size: 100%;
       }
     }
 
-    @media (prefers-color-scheme: light) {
-      @include lightModeHeroStyles;
+    body[light-mode] &::before {
+      background: url("../assets/images/hero-invert-colors.svg") center
+        0.8125rem no-repeat;
+      background-size: 100%;
     }
 
-    body[light-mode] & {
-      @include lightModeHeroStyles;
+    body[vertical][light-mode] &::before {
+      background: url("../assets/images/hero-vertical-invert-colors.svg") -0.8125rem
+        center no-repeat;
+      background-size: 100%;
     }
 
     cursor: pointer;
