@@ -30,8 +30,7 @@
         padding-inline: 1.0625rem;
       }
 
-      button,
-      [dark-mode] button {
+      button {
         inline-size: 13.25rem;
         background: var(--bg-accent);
         color: var(--text-primary);
@@ -44,7 +43,12 @@
           outline-color: var(--text-primary);
         }
 
-        [light-mode] & {
+        body[dark-mode] & {
+          color: var(--text-primary);
+          outline-color: var(--text-primary);
+        }
+
+        body[light-mode] & {
           color: var(--text-secondary-muted);
           outline-color: var(--text-primary);
         }

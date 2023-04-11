@@ -78,31 +78,31 @@ html {
   text-rendering: optimizeLegibility;
 
   /* for testing 
-    add attribute to BODY or any child element.
+    add attribute to BODY
   */
 
-  [dark-color-scheme] {
+  body[dark-mode] {
     color-scheme: dark;
   }
 
-  [light-color-scheme] {
+  body[light-mode] {
     color-scheme: light;
   }
 
-  [ltr] {
+  body[ltr] {
     direction: ltr;
   }
 
-  [rtl] {
+  body[rtl] {
     direction: rtl;
   }
 
-  [vertical] {
+  body[vertical] {
     direction: ltr;
     writing-mode: vertical-rl;
   }
 
-  [dark-mode] {
+  body[dark-mode] {
     --backdrop: #1e272e;
     --bg-primary: #2b343b;
     --bg-primary-hover: #384047;
@@ -118,7 +118,7 @@ html {
     --text-accent: #7b68ee;
   }
 
-  [light-mode] {
+  body[light-mode] {
     --backdrop: #fff;
     --bg-primary: #f4f4f4;
     --bg-primary-hover: #fff;
@@ -154,33 +154,40 @@ body {
     outline-color: var(--text-accent);
   }
 
-  input[type="text"] {
-    &,
-    [dark-mode] & {
-      background-color: var(--bg-secondary);
-      color: var(--text-secondary);
+  @mixin darkModeInputStyles {
+    background-color: var(--bg-secondary);
+    color: var(--text-secondary);
 
-      &::placeholder {
-        color: var(--text-placeholder);
-      }
+    &::placeholder {
+      color: var(--text-placeholder);
     }
+  }
 
-    @mixin lightModeStyles {
-      background-color: var(--bg-primary);
-      color: var(--text-primary);
+  @mixin lightModeInputStyles {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
 
-      &::placeholder {
-        color: var(--text-placeholder);
-      }
+    &::placeholder {
+      color: var(--text-placeholder);
+    }
+  }
+
+  input[type="text"] {
+    & {
+      @include darkModeInputStyles;
     }
 
     @media (prefers-color-scheme: light) {
-      @include lightModeStyles;
+      @include lightModeInputStyles;
     }
+  }
 
-    [light-mode] & {
-      @include lightModeStyles;
-    }
+  &[dark-mode] input[type="text"] {
+    @include darkModeInputStyles;
+  }
+
+  &[light-mode] input[type="text"] {
+    @include lightModeInputStyles;
   }
 }
 

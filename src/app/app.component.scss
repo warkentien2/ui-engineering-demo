@@ -23,7 +23,8 @@
       }
     }
 
-    &::before {
+    &::before,
+    [dark] &::before {
       content: "";
       position: absolute;
       inline-size: var(--main-header-block-size);
@@ -37,8 +38,10 @@
         forwards;
     }
 
-    [vertical] &::before {
+    [vertical] &::before,
+    [vertical][dark] &::before {
       background: url("../assets/images/hero-vertical.svg") -0.8125rem center no-repeat;
+      background-size: 100%;
     }
 
     @keyframes hero-image-scale-down {
@@ -48,6 +51,28 @@
       100% {
         transform: scale(1);
       }
+    }
+
+    @mixin lightModeHeroStyles {
+      &::before {
+        background: url("../assets/images/hero-invert-colors.svg") center
+          0.8125rem no-repeat;
+        background-size: 100%;
+      }
+
+      [vertical] &::before {
+        background: url("../assets/images/hero-vertical-invert-colors.svg") -0.8125rem
+          center no-repeat;
+        background-size: 100%;
+      }
+    }
+
+    @media (prefers-color-scheme: light) {
+      @include lightModeHeroStyles;
+    }
+
+    body[light-mode] & {
+      @include lightModeHeroStyles;
     }
 
     cursor: pointer;
@@ -73,8 +98,22 @@
       color: var(--bg-hero);
       opacity: 0;
       transform: scale(1, 8) translateY(100%);
-      animation: hero-title-slide-up 0.375s cubic-bezier(0.53, 1.02, 0.41, 0.95)
-        forwards 0.125s;
+
+      &,
+      body[dark-mode] & {
+        animation: hero-title-slide-up--dark 0.375s
+          cubic-bezier(0.53, 1.02, 0.41, 0.95) forwards 0.125s;
+      }
+
+      @media (prefers-color-scheme: light) {
+        animation: hero-title-slide-up--light 0.375s
+          cubic-bezier(0.53, 1.02, 0.41, 0.95) forwards 0.125s;
+      }
+
+      body[light-mode] & {
+        animation: hero-title-slide-up--light 0.375s
+          cubic-bezier(0.53, 1.02, 0.41, 0.95) forwards 0.125s;
+      }
     }
 
     span + span {
@@ -93,7 +132,7 @@
       animation-delay: 0.375s;
     }
 
-    @keyframes hero-title-slide-up {
+    @keyframes hero-title-slide-up--dark {
       0% {
         color: var(--bg-hero);
         opacity: 0;
@@ -101,6 +140,19 @@
       }
       100% {
         color: var(--text-secondary);
+        opacity: 1;
+        transform: scale(1, 1) translateY(0);
+      }
+    }
+
+    @keyframes hero-title-slide-up--light {
+      0% {
+        color: var(--bg-hero);
+        opacity: 0;
+        transform: scale(1, 8) translateY(100%);
+      }
+      100% {
+        color: var(--text-primary);
         opacity: 1;
         transform: scale(1, 1) translateY(0);
       }

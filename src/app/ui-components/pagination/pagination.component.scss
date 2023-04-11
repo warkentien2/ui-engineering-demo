@@ -53,19 +53,8 @@
       padding: 0;
 
       &:hover:not([hidden]) {
-        &,
-        [dark-mode] & {
-          background-color: var(--bg-accent);
-          color: var(--text-primary);
-        }
-
-        @media (prefers-color-scheme: light) {
-          color: var(--text-secondary-muted);
-        }
-
-        [light-mode] & {
-          color: var(--text-secondary-muted);
-        }
+        background-color: var(--bg-accent);
+        color: var(--text-primary);
       }
 
       &[hidden] {
