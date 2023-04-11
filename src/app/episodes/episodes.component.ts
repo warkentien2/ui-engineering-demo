@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { EpisodeApiResponse } from '../api_responses/episodeapiresponse';
-import { EpisodesService } from '../episodes.service';
+import { EpisodesService } from '../services/episodes.service';
 
 @Component({
   selector: 'episodes',

@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CharacterApiResponse } from '../api_responses/characterapiresponse';
-import { CharactersService } from '../characters.service';
+import { CharactersService } from '../services/characters.service';
 
 @Component({
   selector: 'characters',
