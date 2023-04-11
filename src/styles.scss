@@ -80,30 +80,25 @@ html {
   text-rendering: optimizeLegibility;
 
   /* for testing 
-    add attribute to HTML, BODY or any other element.
+    add attribute to BODY or any child element.
   */
 
-  & [dark-color-scheme],
   [dark-color-scheme] {
     color-scheme: dark;
   }
 
-  & [light-color-scheme],
   [light-color-scheme] {
     color-scheme: light;
   }
 
-  & [ltr],
   [ltr] {
     direction: ltr;
   }
 
-  & [rtl],
   [rtl] {
     direction: rtl;
   }
 
-  & [vertical],
   [vertical] {
     direction: ltr;
     writing-mode: vertical-rl;
@@ -135,24 +130,5 @@ body {
     block-size: calc(var(--main-header-block-size) * 2);
     top: calc(-1 * var(--main-header-block-size));
     background-color: #fff;
-  }
-}
-
-/* (Progressive enhancement)
-  .characters-filter fade out effect 
-*/
-
-.navigation-tabs:has(li:not(:first-child) a:active)
-  ~ characters
-  .characters-filter {
-  animation: characters-filter-hide 0.125s ease-out forwards !important;
-
-  @keyframes characters-filter-hide {
-    0% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
   }
 }
