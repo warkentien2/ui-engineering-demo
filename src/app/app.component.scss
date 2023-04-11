@@ -24,7 +24,7 @@
     }
 
     &::before,
-    [dark] &::before {
+    [dark-mode] &::before {
       content: "";
       position: absolute;
       inline-size: var(--main-header-block-size);
@@ -39,7 +39,7 @@
     }
 
     [vertical] &::before,
-    [vertical][dark] &::before {
+    [vertical][dark-mode] &::before {
       background: url("../assets/images/hero-vertical.svg") -0.8125rem center no-repeat;
       background-size: 100%;
     }
