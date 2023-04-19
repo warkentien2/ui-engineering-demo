@@ -1,7 +1,7 @@
 :host {
   ui-tabular-list {
     transform: translateY(2.625rem);
-    animation: hide-header 0.125s ease-out forwards;
+    animation: hide-header calc(0.125 * var(--base-duration)) ease-out forwards;
   }
 
   @keyframes hide-header {

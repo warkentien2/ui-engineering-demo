@@ -45,7 +45,8 @@
       box-shadow: var(--tr-shadow);
       display: flex;
       border-radius: 0.1875rem;
-      transition: all 0.2s cubic-bezier(0.31, 0.95, 0.35, 1);
+      transition: all calc(0.2 * var(--base-duration))
+        cubic-bezier(0.31, 0.95, 0.35, 1);
       background: var(--bg-primary);
     }
 
@@ -90,7 +91,7 @@
       &:hover {
         background: var(--bg-primary-hover);
         color: var(--text-accent);
-        transition: all 0s;
+        transition: all calc(0 * var(--base-duration));
       }
 
       &:active {

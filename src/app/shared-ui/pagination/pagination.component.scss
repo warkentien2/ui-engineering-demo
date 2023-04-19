@@ -43,7 +43,7 @@
       border-radius: 0.25rem;
       background-color: var(--bg-secondary);
       color: var(--text-secondary);
-      transition: background-color 0.3s;
+      transition: background-color calc(0.3 * var(--base-duration));
       display: flex;
       align-items: baseline;
       justify-content: center;

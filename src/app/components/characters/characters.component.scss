@@ -57,7 +57,8 @@
 
     ui-tabular-list {
       transform: translateY(-2.625rem);
-      animation: reveal-header 0.125s ease-out forwards;
+      animation: reveal-header calc(0.125 * var(--base-duration)) ease-out
+        forwards;
     }
 
     @keyframes reveal-header {
@@ -68,7 +69,8 @@
 
     .characters-filter {
       opacity: 0;
-      animation: characters-filter-reveal 0.375s ease-out forwards 0.125s;
+      animation: characters-filter-reveal calc(0.375 * var(--base-duration))
+        ease-out forwards calc(0.125 * var(--base-duration));
     }
 
     @keyframes characters-filter-reveal {
@@ -85,8 +87,12 @@
     .characters-filter fade out effect 
   */
 
-  .navigation-tabs:has(li:not(:first-child) a:active) ~ & .characters-filter {
-    animation: characters-filter-hide 0.125s ease-out forwards !important;
+  body:not([reduced-motion])
+    .navigation-tabs:has(li:not(:first-child) a:active)
+    ~ &
+    .characters-filter {
+    animation: characters-filter-hide calc(0.125 * var(--base-duration))
+      ease-out forwards !important;
 
     @keyframes characters-filter-hide {
       0% {
@@ -95,6 +101,12 @@
       100% {
         opacity: 0;
       }
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .characters-filter {
+      animation: none !important;
     }
   }
 }

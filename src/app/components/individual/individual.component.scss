@@ -10,7 +10,8 @@
   display: grid;
   grid-template-rows: 18.75rem 12.25rem;
   transform: translateY(0.3125rem);
-  animation: reveal-individual-card 0.5s ease-out forwards;
+  animation: reveal-individual-card calc(0.5 * var(--base-duration)) ease-out
+    forwards;
 
   @keyframes reveal-individual-card {
     0% {
