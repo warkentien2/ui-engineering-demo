@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UiControlsComponent implements OnInit {
   showForm = false;
-  darkMode = false;
+  darkMode = true;
   textDirection = 'ltr';
   baseFontSize = 16;
 
@@ -15,13 +15,6 @@ export class UiControlsComponent implements OnInit {
     this.cleanUpBody();
     this.loadSettings();
     this.applyChanges();
-
-    console.log('ngOnInit() called');
-    console.log({
-      darkMode: this.darkMode,
-      textDirection: this.textDirection,
-      baseFontSize: this.baseFontSize,
-    });
   }
 
   toggleForm(): void {
