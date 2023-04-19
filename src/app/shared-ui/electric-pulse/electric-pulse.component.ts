@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, ElementRef, EventEmitter, ViewEncapsulation, OnDestroy } from '@angular/core';
-import { SharedService } from '../../services/shared.service';
 import { Subscription } from 'rxjs';
+
+import { SharedService } from '../../services/shared.service';
 
 @Component({
   selector: 'ui-electric-pulse',

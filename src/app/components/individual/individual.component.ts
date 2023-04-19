@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Character } from '../api_responses/character';
-import { CharactersService } from '../services/characters.service';
+
+import { Character } from '../../api_responses/character';
+import { CharactersService } from '../../services/characters.service';
 
 @Component({
   selector: 'app-individual',
