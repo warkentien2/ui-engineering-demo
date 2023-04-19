@@ -91,7 +91,7 @@
   }
 
   h1 {
-    font: var(--font-1);
+    font: var(--font-xxl);
     transform-origin: 50% 50%;
     transition: all 0.25s cubic-bezier(0.32, 0.29, 0.27, 0.99);
     display: flex;
@@ -184,7 +184,6 @@
       flex-direction: row;
       align-items: center;
       list-style: none;
-      font-weight: 400;
       block-size: 1.875rem;
       margin: 0;
       padding: 0;
@@ -197,7 +196,7 @@
     a {
       color: var(--text-primary-muted);
       text-decoration: none;
-      font: var(--font-3);
+      font: var(--font-lg);
 
       &.active {
         color: var(--text-primary);

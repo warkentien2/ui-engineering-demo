@@ -3,7 +3,7 @@
   grid-gap: 1.625rem;
   grid-template-rows: auto 1.125rem;
   grid-template-columns: min(62.625rem, calc(100vi - 2rem));
-  font: var(--font-6);
+  font: var(--font-sm);
   color: var(--text-primary);
 
   table {
@@ -60,7 +60,7 @@
       padding-inline: 1rem 0.75rem;
       border: none;
       inline-size: 8.5rem;
-      font: var(--font-5);
+      font: var(--font-base);
       line-height: 1.25rem;
       display: flex;
       align-items: center;
