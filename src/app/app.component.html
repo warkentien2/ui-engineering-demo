@@ -11,20 +11,17 @@
     <ul>
       <li>
         <a
-          [routerLink]="['/characters']"
-          appActiveLink="/character"
+          routerLink="/characters"
           [queryParams]="{
             fromPage: characterPage,
             nameSearch: characterNameSearch
           }"
-          class="nav-link"
-          routerLinkActive="active"
-          [routerLinkActiveOptions]="{ exact: false }"
+          [class.active]="isActiveRoute('/character')"
           >Characters</a
         >
       </li>
       <li>
-        <a routerLink="/episodes" class="nav-link" routerLinkActive="active"
+        <a routerLink="/episodes" [class.active]="isActiveRoute('/episodes')"
           >Episode Guide</a
         >
       </li>
