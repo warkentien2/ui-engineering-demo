@@ -30,6 +30,7 @@ export class ElectricPulseComponent implements OnInit, OnDestroy {
     'M660 77.0951C666.5 90.5 671.5 78.2609 676.5 75C681.5 71.7391 686.5 79 687.5 70C688.5 61 683 67 680.5 59C678 51 686.539 57.1824 691.5 48.5C695.5 41.5 693.5 37.5 701 37.5C713.5 37.5 711.415 30.858 714 25C720 11.4049 687 -4.00002 680.5 12.5C678.382 17.8764 690 28 675 37.5',
     'M770.5 72C750 78 739.5 80 737 72C734.5 64 722.5 73 722.5 65.5C722.5 58 712 52.5 705 55C698 57.5 698 61 696.5 55C694.545 47.1784 700 49.5 703 47C706 44.5 706.5 38.5 701 34.5C694.934 30.0887 687.5 33 687.5 37.5C687.5 43.2785 683.5 54 672.5 47',
   ];
+  hasReducedMotion;
   path;
   strokeDashArray;
   strokeDashOffset;
@@ -41,7 +42,7 @@ export class ElectricPulseComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     setTimeout(() => {
       this.tryAnimation(0, 125);
-    }, 750);
+    }, 1375);
     this.subscription = this.sharedService.triggerChild$.subscribe(() => {
       if (!Boolean(this.isAnimating)) {
         this.tryAnimation(0, 125);
@@ -85,7 +86,9 @@ export class ElectricPulseComponent implements OnInit, OnDestroy {
   }
 
   tryAnimation(index, duration): void {
-    if (Boolean(this.isAnimating)) {
+    this.hasReducedMotion = window.matchMedia(`(prefers-reduced-motion: reduce)`).matches || document.querySelector('body[reduced-motion]');
+
+    if (Boolean(this.isAnimating) || Boolean(this.hasReducedMotion)) {
       return;
     }
 
@@ -99,6 +102,10 @@ export class ElectricPulseComponent implements OnInit, OnDestroy {
     let path1;
     let path2;
     let pathLength;
+
+    if (this.hasReducedMotion) {
+      return;
+    }
 
     if (index === 0) {
       // draw in first path
