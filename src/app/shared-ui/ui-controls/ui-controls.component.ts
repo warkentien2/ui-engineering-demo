@@ -1,20 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'ui-controls',
   templateUrl: './ui-controls.component.html',
-  styleUrls: ['./ui-controls.component.scss']
+  styleUrls: ['./ui-controls.component.scss'],
+  encapsulation: ViewEncapsulation.Emulated,
 })
 export class UiControlsComponent implements OnInit {
   showForm = false;
-  darkMode = true;
+  isDarkMode = true;
   textDirection = 'ltr';
   baseFontSize = 16;
+  hasReducedMotion = window.matchMedia(`(prefers-reduced-motion: reduce)`).matches;
 
   ngOnInit(): void {
     this.cleanUpBody();
-    this.loadSettings();
-    this.applyChanges();
+    setTimeout(() => {
+      this.loadSettings();
+      this.applyChanges();
+    }, 0);
   }
 
   toggleForm(): void {
@@ -33,6 +37,7 @@ export class UiControlsComponent implements OnInit {
     body.removeAttribute('light-mode');
     body.removeAttribute('vertical');
     body.removeAttribute('rtl');
+    body.removeAttribute('reduced-motion');
     htmlElement.removeAttribute('style');
   }
 
@@ -40,23 +45,29 @@ export class UiControlsComponent implements OnInit {
     const body = document.body;
     const htmlElement = document.documentElement;
 
-    console.log('applyChanges() called');
+    console.log('updated UI settings: ');
     console.log({
-      darkMode: this.darkMode,
+      darkMode: this.isDarkMode,
       textDirection: this.textDirection,
       baseFontSize: this.baseFontSize,
+      prefersReducedMotion: this.hasReducedMotion,
     });
 
     this.cleanUpBody();
 
     // update
 
-    if (this.darkMode) {
+    if (this.isDarkMode) {
       body.setAttribute('dark-mode', '');
     } else {
       body.setAttribute('light-mode', '');
     }
     body.setAttribute(this.textDirection, '');
+
+    if ( this.hasReducedMotion) {
+      body.setAttribute('reduced-motion', '');
+    }
+
     htmlElement.style.fontSize = `${this.baseFontSize}px`;
 
     this.saveSettings();
@@ -66,19 +77,35 @@ export class UiControlsComponent implements OnInit {
     const settings = localStorage.getItem('ui-controls-settings');
     if (settings) {
       const parsedSettings = JSON.parse(settings);
-      this.darkMode = parsedSettings.darkMode;
+      this.isDarkMode = parsedSettings.darkMode;
       this.textDirection = parsedSettings.textDirection;
       this.baseFontSize = parsedSettings.baseFontSize;
+      this.hasReducedMotion = parsedSettings.prefersReducedMotion;
+
+      console.log('cached UI settings: ');
       console.log(parsedSettings);
     }
   }
 
   private saveSettings(): void {
     const settings = {
-      darkMode: this.darkMode,
+      darkMode: this.isDarkMode,
       textDirection: this.textDirection,
       baseFontSize: this.baseFontSize,
+      prefersReducedMotion: this.hasReducedMotion
     };
     localStorage.setItem('ui-controls-settings', JSON.stringify(settings));
+  }
+
+  // Fix two-way data binding checkbox bug
+
+  onDarkModeCheckboxChange(event: Event): void {
+    const target = event.target as HTMLInputElement;
+    this.isDarkMode = target.checked;
+  }
+
+  onReducedMotionCheckboxChange(event: Event): void {
+    const target = event.target as HTMLInputElement;
+    this.hasReducedMotion = target.checked;
   }
 }
