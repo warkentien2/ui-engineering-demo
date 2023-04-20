@@ -4,7 +4,6 @@
   inset-inline-end: 0;
   block-size: 5rem;
   inline-size: 5rem;
-  background: var(--bg-accent);
   border-start-start-radius: 50%;
 
   .ui-controls {
@@ -14,9 +13,7 @@
     block-size: 100%;
     inline-size: 100%;
     border: none;
-    border-radius: 50%;
-    background: transparent;
-    cursor: pointer;
+    border-radius: inherit;
     padding: 0;
     font-size: var(--_ui-controls__font-size);
     line-height: 1em;
@@ -134,8 +131,6 @@
     }
 
     .controls-submit {
-      background: var(--bg-accent);
-      color: var(--text-primary);
       border: none;
       padding-block: 0.75rem;
       padding-inline: 1rem;

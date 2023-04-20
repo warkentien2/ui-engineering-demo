@@ -4,15 +4,29 @@
   min-block-size: 100vh;
   min-block-size: 100dvb;
 
+  opacity: 0;
+  animation: body-fade-in var(--app-reveal-duration) ease-in forwards
+    var(--app-reveal-delay) !important;
+
+  @keyframes body-fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
   header {
     block-size: var(--main-header-block-size);
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
     background-color: var(--bg-hero);
     overflow: hidden;
     animation: hero-background-fade-in calc(0.75 * var(--base-duration))
-      cubic-bezier(0.53, 1.02, 0.41, 1) forwards;
+      cubic-bezier(0.53, 1.02, 0.41, 1) forwards var(--wait-for-app-reveal);
 
     @keyframes hero-background-fade-in {
       0% {
@@ -35,7 +49,7 @@
       transform: scale(10);
       color: var(--bg-hero);
       animation: hero-image-scale-down calc(0.75 * var(--base-duration))
-        cubic-bezier(0.53, 1.02, 0.41, 1) forwards;
+        cubic-bezier(0.53, 1.02, 0.41, 1) forwards var(--wait-for-app-reveal);
     }
 
     body[vertical] &::before,
@@ -78,8 +92,6 @@
         center no-repeat;
       background-size: 100%;
     }
-
-    cursor: pointer;
   }
 
   :hover h1 {
@@ -108,19 +120,19 @@
       body[dark-mode] & {
         animation: hero-title-slide-up--dark calc(0.375 * var(--base-duration))
           cubic-bezier(0.53, 1.02, 0.41, 0.95) forwards
-          calc(0.125 * var(--base-duration));
+          calc(0.125 * var(--base-duration) + var(--wait-for-app-reveal));
       }
 
       @media (prefers-color-scheme: light) {
         animation: hero-title-slide-up--light calc(0.375 * var(--base-duration))
           cubic-bezier(0.53, 1.02, 0.41, 0.95) forwards
-          calc(0.125 * var(--base-duration));
+          calc(0.125 * var(--base-duration) + var(--wait-for-app-reveal));
       }
 
       body[light-mode] & {
         animation: hero-title-slide-up--light calc(0.375 * var(--base-duration))
           cubic-bezier(0.53, 1.02, 0.41, 0.95) forwards
-          calc(0.125 * var(--base-duration));
+          calc(0.125 * var(--base-duration) + var(--wait-for-app-reveal));
       }
     }
 
@@ -129,15 +141,21 @@
     }
 
     span:nth-child(2) {
-      animation-delay: calc(0.25 * var(--base-duration));
+      animation-delay: calc(
+        0.25 * var(--base-duration) + var(--wait-for-app-reveal)
+      );
     }
 
     span:nth-child(3) {
-      animation-delay: calc(0.325 * var(--base-duration));
+      animation-delay: calc(
+        0.325 * var(--base-duration) + var(--wait-for-app-reveal)
+      );
     }
 
     span:nth-child(4) {
-      animation-delay: calc(0.375 * var(--base-duration));
+      animation-delay: calc(
+        0.375 * var(--base-duration) + var(--wait-for-app-reveal)
+      );
     }
 
     @keyframes hero-title-slide-up--dark {

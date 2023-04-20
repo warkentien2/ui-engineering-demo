@@ -1,12 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 
 :root {
-  --main-header-block-size: 16.25rem;
   color-scheme: dark; /* try light */
   direction: ltr; /* try rtl */
   writing-mode: horizontal-tb; /* try vertical-rl (with direction: ltr) */
-  // writing-mode: vertical-rl;
-  // font-size: 24px; /* try other base font sizes */
+
+  /* Global vars */
+
+  --main-header-block-size: 16.25rem;
+
+  --app-reveal-delay: 0.0625s;
+  --app-reveal-duration: 0.125s;
+  // pre-calculated for performance: delay + duration + post-reveal-delay
+  --wait-for-app-reveal: 0.4375s;
 
   /* Fonts: with normalized font heights */
 
@@ -87,6 +93,20 @@ html {
   body[vertical] {
     direction: ltr;
     writing-mode: vertical-rl;
+    text-orientation: sideways;
+    text-orientation: use-glyph-orientation;
+
+    button,
+    input {
+      direction: ltr !important;
+      writing-mode: vertical-rl !important;
+    }
+
+    button span {
+      direction: ltr !important;
+      writing-mode: vertical-rl !important;
+      margin: auto;
+    }
   }
 
   body[dark-mode] {
@@ -134,7 +154,22 @@ body {
   min-block-size: 100vh;
   min-block-size: 100dvb;
   min-inline-size: 100dvmin;
-  background: var(--backdrop);
+  /* match layout colors */
+  background: var(--backdrop)
+    linear-gradient(
+      to bottom,
+      var(--bg-secondary) var(--main-header-block-size),
+      var(--backdrop) var(--main-header-block-size)
+    );
+
+  &[vertical] {
+    background: var(--backdrop)
+      linear-gradient(
+        to left,
+        var(--bg-secondary) var(--main-header-block-size),
+        var(--backdrop) var(--main-header-block-size)
+      );
+  }
 
   &,
   * {
@@ -202,5 +237,47 @@ body {
 
   .media-lg {
     display: none !important;
+  }
+}
+
+/* shared styles */
+
+button {
+  cursor: pointer;
+}
+
+button.accent-button {
+  background-color: var(--bg-accent);
+  color: var(--text-primary);
+  outline-color: var(--text-primary);
+
+  @media (prefers-color-scheme: light) {
+    color: var(--text-secondary-muted);
+    outline-color: var(--text-primary-muted);
+  }
+
+  body[dark-mode] & {
+    color: var(--text-primary);
+    outline-color: var(--text-primary);
+  }
+
+  body[light-mode] & {
+    color: var(--text-secondary-muted);
+    outline-color: var(--text-primary-muted);
+  }
+
+  transition: calc(0.125 * var(--base-duration)) ease-out;
+
+  span {
+    display: inline-block;
+  }
+
+  & > * {
+    transform-origin: center;
+    transition: inherit;
+  }
+
+  &:hover:not(:active) > * {
+    transform: scale(1.05) translateZ(0);
   }
 }

@@ -1,5 +1,5 @@
 <button
-  class="ui-controls"
+  class="ui-controls accent-button"
   (click)="toggleForm()"
   attr.aria-label="{{ showForm ? 'Close UI settings' : 'Open UI Settings' }}"
   attr.title="{{ showForm ? 'Close UI settings' : 'Open UI Settings' }}"
@@ -91,7 +91,7 @@
         reduced motion
       </label>
     </fieldset>
-    <button (click)="applyChanges()" class="controls-submit">
+    <button (click)="applyChanges()" class="controls-submit accent-button">
       <span>apply changes</span>
     </button>
     <button

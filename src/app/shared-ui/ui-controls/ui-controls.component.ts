@@ -1,12 +1,14 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, HostBinding, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'ui-controls',
   templateUrl: './ui-controls.component.html',
   styleUrls: ['./ui-controls.component.scss'],
-  encapsulation: ViewEncapsulation.Emulated,
+  encapsulation: ViewEncapsulation.Emulated
 })
 export class UiControlsComponent implements OnInit {
+  @HostBinding('class') hostClasses = 'ui-controls-anchor';
+
   showForm = false;
   isDarkMode = true;
   textDirection = 'ltr';
@@ -15,10 +17,8 @@ export class UiControlsComponent implements OnInit {
 
   ngOnInit(): void {
     this.cleanUpBody();
-    setTimeout(() => {
-      this.loadSettings();
-      this.applyChanges();
-    }, 0);
+    this.loadSettings();
+    this.applyChanges();
   }
 
   toggleForm(): void {

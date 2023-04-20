@@ -10,6 +10,29 @@
    - I might have introduced a few bugs. Happy to tackle them later
 7. I have a backlog of pending improvements for this code, but I had to stop somewhere
 
+TODO:
+
+- [ ] Improve Pagination voice over
+- [ ] Fix checkboxes
+- [ ] fix form voice over
+- [ ] fix TabularList voice over with column info: https://webaim.org/techniques/forms/advanced
+- [x] fix character active tab
+- [ ] add unit tests
+- [ ] add e2e tests
+- [ ] fix light mode colors, specially for hero
+- [x] modularize all components
+- [ ] apply Bem CSS, and :host.base-class-name
+- [ ] fix ltr hero title
+- [ ] use SVG for hero img
+- [ ] add custom scrollbar
+- [ ] create reduce header on scroll variant
+- [ ] create comprehensive PDF, mention it on the README.md (ask for the PDF)
+- [ ] Use a more intuitive font-size approach: https://css-tricks.com/snippets/css/less-mixin-for-rem-font-sizing/
+- [ ] Add valid search autocomplete. Can it be styled?
+- [ ] Test TabularList layout on large font + small screen
+- [x] Improve Vertical layout
+- [x] Handle reduced motion (and controls)
+
 \*\* If you run into an issue running `$ yarn install` try `$ npm install`. (node version v18.10.0)
 
 # ClickUp UI/UX Engineer Mini Project

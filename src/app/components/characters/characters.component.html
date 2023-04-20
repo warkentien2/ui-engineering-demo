@@ -10,9 +10,13 @@
       (keydown.enter)="getCharacters(1)"
     />
 
-    <button (click)="getCharacters(1)" aria-label="Search">
-      <span class="media-sm">🔎</span>
-      <span class="media-lg">Search</span>
+    <button
+      (click)="getCharacters(1)"
+      aria-label="Search"
+      title="Search"
+      class="accent-button"
+    >
+      🔎<span class="media-lg">Search</span>
     </button>
   </header>
 
