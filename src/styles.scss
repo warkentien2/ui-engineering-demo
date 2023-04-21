@@ -163,6 +163,7 @@ body {
     );
 
   &[vertical] {
+    --main-header-block-size: 12.0625rem;
     background: var(--backdrop)
       linear-gradient(
         to left,
@@ -220,7 +221,7 @@ body {
 
 /* helper classes */
 
-@media (min-width: 30rem) {
+@media (min-width: 30.0001rem) {
   .media-sm {
     display: none !important;
   }
@@ -237,6 +238,30 @@ body {
 
   .media-lg {
     display: none !important;
+  }
+}
+
+@media (min-height: 30.0001rem) {
+  body[vertical] {
+    .media-sm {
+      display: none !important;
+    }
+
+    .media-lg {
+      display: block !important;
+    }
+  }
+}
+
+@media (max-height: 30rem) {
+  body[vertical] {
+    .media-sm {
+      display: block !important;
+    }
+
+    .media-lg {
+      display: none !important;
+    }
   }
 }
 

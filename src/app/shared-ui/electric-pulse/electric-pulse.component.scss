@@ -1,9 +1,10 @@
 :host {
+  writing-mode: horizontal-tb !important;
   position: absolute;
   inline-size: 12.1em;
   block-size: 1.55em;
-  inset-block-start: -1.5rem;
-  inset-inline-start: -4.9375rem;
+  inset-block-start: -0.375em;
+  inset-inline-start: -1.234375em;
 
   svg {
     transform-origin: 50% 50%;
@@ -16,7 +17,10 @@
     filter: hue-rotate(75deg);
   }
 
-  body[vertical] & svg {
-    visibility: hidden;
+  body[vertical] & {
+    inset-block-start: calc(-1 * min(13.75vh, 7rem));
+    inset-inline-start: 2rem;
+    rotate: 90deg;
+    transform-origin: 0% 50%;
   }
 }

@@ -3,6 +3,8 @@
   grid-template-rows: var(--main-header-block-size) 1fr;
   min-block-size: 100vh;
   min-block-size: 100dvb;
+  overflow-y: hidden;
+  max-width: 100dvw;
 
   opacity: 0;
   animation: body-fade-in var(--app-reveal-duration) ease-in forwards
@@ -18,6 +20,7 @@
   }
 
   header {
+    font: var(--font-xxl);
     block-size: var(--main-header-block-size);
     display: flex;
     align-items: center;
@@ -52,12 +55,6 @@
         cubic-bezier(0.53, 1.02, 0.41, 1) forwards var(--wait-for-app-reveal);
     }
 
-    body[vertical] &::before,
-    body[vertical][dark-mode] &::before {
-      background: url("../assets/images/hero-vertical.svg") -0.8125rem center no-repeat;
-      background-size: 100%;
-    }
-
     @keyframes hero-image-scale-down {
       0% {
         transform: scale(10);
@@ -73,12 +70,6 @@
           0.8125rem no-repeat;
         background-size: 100%;
       }
-
-      body[vertical] &::before {
-        background: url("../assets/images/hero-vertical-invert-colors.svg") -0.8125rem
-          center no-repeat;
-        background-size: 100%;
-      }
     }
 
     body[light-mode] &::before {
@@ -87,10 +78,8 @@
       background-size: 100%;
     }
 
-    body[vertical][light-mode] &::before {
-      background: url("../assets/images/hero-vertical-invert-colors.svg") -0.8125rem
-        center no-repeat;
-      background-size: 100%;
+    body[vertical] &::before {
+      inset-inline-end: 0;
     }
   }
 
@@ -103,12 +92,21 @@
   }
 
   h1 {
-    font: var(--font-xxl);
+    font: inherit;
     transform-origin: 50% 50%;
     transition: all calc(0.25 * var(--base-duration))
       cubic-bezier(0.32, 0.29, 0.27, 0.99);
     display: flex;
+    gap: 0.25em;
     align-items: center;
+
+    body[rtl] & {
+      flex-direction: row-reverse;
+    }
+
+    body[vertical] & {
+      font-size: min(0.875em, 7dvi);
+    }
 
     span {
       display: inline-block;
@@ -134,10 +132,6 @@
           cubic-bezier(0.53, 1.02, 0.41, 0.95) forwards
           calc(0.125 * var(--base-duration) + var(--wait-for-app-reveal));
       }
-    }
-
-    span + span {
-      margin-inline-start: 0.25em;
     }
 
     span:nth-child(2) {
