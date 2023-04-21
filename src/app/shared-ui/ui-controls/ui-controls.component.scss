@@ -1,9 +1,10 @@
 :host {
+  --_ui-controls-button-size: 5rem;
   position: fixed;
   inset-block-end: 0;
   inset-inline-end: 0;
-  block-size: 5rem;
-  inline-size: 5rem;
+  block-size: var(--_ui-controls-button-size);
+  inline-size: var(--_ui-controls-button-size);
   border-start-start-radius: 50%;
 
   .ui-controls {
@@ -38,17 +39,25 @@
   }
 
   .ui-controls-form {
+    --_ui-form-width: 20rem;
+
     background: var(--bg-secondary);
     color: var(--text-secondary);
     position: absolute;
-    inset-block-end: 100%;
-    inset-inline-end: 100%;
+    inset-block-end: min(
+      calc((max(var(--_ui-form-width), 100vmin) - var(--_ui-form-width)) / 2),
+      var(--_ui-controls-button-size)
+    );
+    inset-inline-end: min(
+      calc((max(var(--_ui-form-width), 100vmin) - var(--_ui-form-width)) / 2),
+      var(--_ui-controls-button-size)
+    );
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 0.3125rem;
     padding: 0.9375rem;
     block-size: max-content;
-    min-inline-size: 20rem;
+    min-inline-size: var(--_ui-form-width);
     box-shadow: 0 1px 1px hsl(0deg 0% 0% / 0.075),
       0 2px 2px hsl(0deg 0% 0% / 0.075), 0 4px 4px hsl(0deg 0% 0% / 0.075),
       0 8px 8px hsl(0deg 0% 0% / 0.075), 0 16px 16px hsl(0deg 0% 0% / 0.075);
@@ -119,7 +128,10 @@
 
       position: absolute;
       inset-block-start: -3rem;
-      inset-inline-end: -3rem;
+      inset-inline-end: calc(
+        -1 * min((max(var(--_ui-form-width), 100vmin) - var(--_ui-form-width)) /
+              2, 3rem)
+      );
       border-radius: 50%;
       block-size: 2rem;
       inline-size: 2rem;
@@ -127,6 +139,13 @@
       font-size: var(--_controls-close__font-size);
       font-weight: var(--_controls-close__font-weight);
       background: none;
+      color: var(--text-primary);
+      text-shadow: 0 0 1.5px var(--text-secondary),
+        0 0 1.5px var(--text-secondary), 0 0 1.5px var(--text-secondary),
+        0 0 1.5px var(--text-secondary), 0 0 1.5px var(--text-secondary),
+        0 0 1.5px var(--text-secondary), 0 0 1.5px var(--text-secondary),
+        0 0 1.5px var(--text-secondary), 0 0 1.5px var(--text-secondary),
+        0 0 1.5px var(--text-secondary);
       cursor: pointer;
     }
 
