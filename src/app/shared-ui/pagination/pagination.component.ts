@@ -83,16 +83,25 @@ export class PaginationComponent implements OnChanges, OnInit {
     return pixels / baseFontSize;
   }
 
-  updateMaxVisibleItems(): void {
-    const screenWidthRem = this.pixelsToRem(window.innerWidth);
+  checkIfVertical(): boolean {
+    return getComputedStyle(document.querySelector('body')).writingMode ===
+    'vertical-rl' || document.querySelector('body').hasAttribute('vertical');
+  }
 
-    if (screenWidthRem <= 34 && this.maxVisibleItems !== 5) {
+  updateMaxVisibleItems(): void {
+    let screenInlineRem = this.pixelsToRem(window.innerWidth);
+
+    if (this.checkIfVertical()) {
+      screenInlineRem = this.pixelsToRem(window.innerHeight);
+    }
+
+    if (screenInlineRem <= 34 && this.maxVisibleItems !== 5) {
       this.maxVisibleItems = 3;
       this.generateVisiblePages();
-    } else if (screenWidthRem <= 50 && this.maxVisibleItems !== 10) {
+    } else if (screenInlineRem <= 50 && this.maxVisibleItems !== 10) {
       this.maxVisibleItems = 7;
       this.generateVisiblePages();
-    } else if (screenWidthRem > 50 && this.maxVisibleItems !== 14) {
+    } else if (screenInlineRem > 50 && this.maxVisibleItems !== 14) {
       this.maxVisibleItems = 14;
       this.generateVisiblePages();
     }
