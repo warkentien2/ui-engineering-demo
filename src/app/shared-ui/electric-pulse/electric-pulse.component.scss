@@ -17,6 +17,11 @@
     filter: hue-rotate(75deg);
   }
 
+  body[rtl] & {
+    inset-inline-start: initial;
+    inset-inline-end: -1.234375em;
+  }
+
   body[vertical] & {
     inset-block-start: calc(-1 * min(13.75vh, 7rem));
     inset-inline-start: 2rem;
