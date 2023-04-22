@@ -86,6 +86,8 @@
         }
 
         input {
+          max-inline-size: 3rem;
+
           body:not([vertical]) & {
             margin-inline: 0.5rem;
           }
