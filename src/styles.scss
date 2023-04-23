@@ -8,9 +8,16 @@
   text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
 
+  /* 
+    10px = 1rem hack: 
+    [read more](https://www.aleksandrhovhannisyan.com/blog/62-5-percent-font-size-trick/) 
+  */
+
+  font-size: 62.5%;
+
   /* Global vars */
 
-  --main-header-block-size: 16.25rem;
+  --main-header-block-size: 26rem;
 
   --app-reveal-delay: 0.0625s;
   --app-reveal-duration: 0.125s;
@@ -21,12 +28,12 @@
 
   --font-family: "Metropolis", -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-  --font-xxl: bold min(4rem, 10vi) / 3.75rem var(--font-family);
-  --font-xl: normal clamp(1.5rem, 2.25rem, 5.625vi) / 2rem var(--font-family);
-  --font-lg: normal clamp(1.25rem, 2rem, 5vi) / 1.875rem var(--font-family);
-  --font-md: normal 1.125rem / 1rem var(--font-family);
-  --font-base: normal 1rem / 0.875rem var(--font-family);
-  --font-sm: normal 0.875rem / 0.75rem var(--font-family);
+  --font-xxl: bold min(6.4rem, 10vi) / 6rem var(--font-family);
+  --font-xl: normal clamp(2.4rem, 3.6rem, 5.625vi) / 3.2rem var(--font-family);
+  --font-lg: normal clamp(2rem, 3.2rem, 5vi) / 3rem var(--font-family);
+  --font-md: normal 1.8rem / 1.6rem var(--font-family);
+  --font-base: normal 1.6rem / 1.4rem var(--font-family);
+  --font-sm: normal 1.4rem / 1.2rem var(--font-family);
 
   /* Colors */
 
@@ -143,7 +150,7 @@ body {
     );
 
   :root[vertical] & {
-    --main-header-block-size: 12.0625rem;
+    --main-header-block-size: 19.3rem;
     background: var(--backdrop)
       linear-gradient(
         to left,
@@ -164,8 +171,8 @@ body {
 
   *:focus-visible,
   [aria-label]:focus-visible {
-    outline: 0.125rem solid var(--text-accent);
-    outline-offset: 0.125rem;
+    outline: 0.2rem solid var(--text-accent);
+    outline-offset: 0.2rem;
   }
 
   *:focus:not(:focus-visible) {
@@ -187,7 +194,7 @@ body {
 
 /* helper classes */
 
-@media (min-width: 30.0001rem) {
+@media (min-width: 48.0001rem) {
   .media-sm {
     display: none !important;
   }
@@ -197,7 +204,7 @@ body {
   }
 }
 
-@media (max-width: 30rem) {
+@media (max-width: 48rem) {
   .media-sm {
     display: block !important;
   }
@@ -207,7 +214,7 @@ body {
   }
 }
 
-@media (min-height: 30.0001rem) {
+@media (min-height: 48.0001rem) {
   :root[vertical] {
     .media-sm {
       display: none !important;
@@ -219,7 +226,7 @@ body {
   }
 }
 
-@media (max-height: 30rem) {
+@media (max-height: 48rem) {
   :root[vertical] {
     .media-sm {
       display: block !important;
@@ -260,7 +267,7 @@ button.accent-button {
   }
 
   &:focus-visible {
-    outline: 0.125rem solid var(--text-accent);
-    outline-offset: 0.125rem;
+    outline: 0.2rem solid var(--text-accent);
+    outline-offset: 0.2rem;
   }
 }

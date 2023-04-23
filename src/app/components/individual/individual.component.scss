@@ -1,21 +1,21 @@
 :host .card {
-  padding-block: 2.25rem 0.625rem;
-  padding-inline: 2.25rem;
-  inline-size: min(38.375rem, calc(100vi - 2rem));
+  padding-block: 3.6rem 1rem;
+  padding-inline: 3.6rem;
+  inline-size: min(61.4rem, calc(100vi - 3.2rem));
   background: var(--bg-primary);
-  border: 0.0625rem solid var(--bg-primary-variant);
-  box-shadow: 0rem 0.0625rem 0.1875rem rgba(0, 0, 0, 0.11);
-  border-radius: 0.625rem;
+  border: 1px solid var(--bg-primary-variant);
+  box-shadow: 0 1px 0.3rem rgba(0, 0, 0, 0.11);
+  border-radius: 1rem;
   margin: auto;
   display: grid;
-  grid-template-rows: 18.75rem 12.25rem;
-  transform: translateY(0.3125rem);
+  grid-template-rows: 30rem 19.6rem;
+  transform: translateY(0.5rem);
   animation: reveal-individual-card calc(0.5 * var(--base-duration)) ease-out
     forwards;
 
   @keyframes reveal-individual-card {
     0% {
-      transform: translateY(0.3125rem);
+      transform: translateY(0.5rem);
     }
     100% {
       transform: translateY(0);
@@ -23,7 +23,7 @@
   }
 
   .card-img {
-    border-radius: 6.25rem;
+    border-radius: 10rem;
     background: var(--bg-secondary);
     margin: auto;
   }
@@ -46,6 +46,6 @@
   .card-subtitle {
     font: var(--font-md);
     color: inherit;
-    word-spacing: 1.25rem;
+    word-spacing: 2rem;
   }
 }

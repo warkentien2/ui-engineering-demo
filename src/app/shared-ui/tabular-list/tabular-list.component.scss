@@ -1,20 +1,20 @@
 :host {
   display: grid;
-  grid-gap: 1.625rem;
-  grid-template-rows: auto 1.125rem;
-  grid-template-columns: min(62.625rem, calc(100vi - 2rem));
+  grid-gap: 2.6rem;
+  grid-template-rows: auto 1.8rem;
+  grid-template-columns: min(100.2rem, calc(100vi - 3.2rem));
   font: var(--font-sm);
   color: var(--text-primary);
 
   table {
-    --tabular-list-radius: 0.1875rem;
+    --tabular-list-radius: 0.3rem;
     background: transparent;
     border: none;
     border-spacing: 0;
     border-collapse: collapse;
-    inline-size: calc(100% + 2rem);
-    margin-inline: -1rem;
-    padding-block: 0.0625rem;
+    inline-size: calc(100% + 3.2rem);
+    margin-inline: -1.6rem;
+    padding-block: 1px;
     display: flex;
     overflow-x: scroll;
 
@@ -36,38 +36,38 @@
       flex-direction: column;
       inline-size: 100%;
       min-inline-size: fit-content;
-      padding-inline: 1rem;
+      padding-inline: 1.6rem;
     }
 
     tr {
-      --tr-shadow: 0 0.0625rem 0.1875rem rgba(0, 0, 0, 0.11),
-        0 0 0 0.0625rem var(--bg-primary-variant);
+      --tr-shadow: 0 1px 0.3rem rgba(0, 0, 0, 0.11),
+        0 0 0 1px var(--bg-primary-variant);
       box-shadow: var(--tr-shadow);
       display: flex;
-      border-radius: 0.1875rem;
+      border-radius: 0.3rem;
       transition: all calc(0.2 * var(--base-duration))
         cubic-bezier(0.31, 0.95, 0.35, 1);
       background: var(--bg-primary);
 
       &:focus-visible {
-        outline: 0.125rem solid var(--text-accent);
+        outline: 0.2rem solid var(--text-accent);
         z-index: 5;
       }
     }
 
     tr + tr {
-      margin-block-start: 0.0625rem;
+      margin-block-start: 1px;
     }
 
     th,
     td {
-      min-block-size: 2.375rem;
-      padding-block: 0.5rem;
-      padding-inline: 1rem 0.75rem;
+      min-block-size: 3.8rem;
+      padding-block: 0.8rem;
+      padding-inline: 1.6rem 1.2rem;
       border: none;
-      inline-size: 8.5rem;
+      inline-size: 13.6rem;
       font: var(--font-base);
-      line-height: 1.25rem;
+      line-height: 2rem;
       display: flex;
       align-items: center;
 
@@ -81,7 +81,7 @@
     }
 
     .cell-grow {
-      flex: 1 0 12.75rem;
+      flex: 1 0 20.4rem;
     }
 
     .cell-shrink {
@@ -100,16 +100,16 @@
       }
 
       &:active {
-        transform: translateY(0.0625rem);
+        transform: translateY(1px);
       }
     }
 
     tr + tr {
       &:active {
-        transform: translateY(0.0625rem);
+        transform: translateY(1px);
         border-block-start: transparent;
-        box-shadow: 0 -0.0625rem 0 var(--backdrop), var(--tr-shadow),
-          inset 0 0.125rem 0.25rem -0.125rem var(--backdrop);
+        box-shadow: 0 -1px 0 var(--backdrop), var(--tr-shadow),
+          inset 0 0.2rem 0.4rem -0.2rem var(--backdrop);
       }
     }
   }

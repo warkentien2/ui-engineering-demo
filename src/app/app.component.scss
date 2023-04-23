@@ -45,7 +45,7 @@
       position: absolute;
       inline-size: var(--main-header-block-size);
       block-size: 100%;
-      background: url("../assets/images/hero.svg") center 0.8125rem no-repeat;
+      background: url("../assets/images/hero.svg") center 0 no-repeat;
       background-size: 100%;
       transform-origin: 33.3% 33.3%;
       transform: scale(10);
@@ -69,7 +69,7 @@
   }
 
   :hover h1 {
-    transform: translateY(-0.125rem);
+    transform: translateY(-0.2rem);
   }
 
   :active h1 {
@@ -171,27 +171,27 @@
     justify-content: flex-start;
     block-size: 100%;
     background: var(--backdrop);
-    padding-block: 3.5rem;
-    padding-inline: 1rem;
+    padding-block: 5.6rem;
+    padding-inline: 1.6rem;
     block-size: 100%;
   }
 
   nav {
-    block-size: 2rem;
-    margin-block-end: min(10vi, 4.5rem);
+    block-size: 3.2rem;
+    margin-block-end: min(10vi, 7.2rem);
 
     ul {
       display: flex;
       flex-direction: row;
       align-items: center;
       list-style: none;
-      block-size: 1.875rem;
+      block-size: 3rem;
       margin: 0;
       padding: 0;
     }
 
     li + li {
-      margin-inline-start: min(10vi, 2.8125rem);
+      margin-inline-start: min(10vi, 4.5rem);
     }
 
     a {
@@ -206,8 +206,8 @@
   }
 }
 
-@media (max-width: 50rem) {
-  :host {
+@media (max-width: 48rem) {
+  :root:not([vertical]) :host {
     --main-header-block-size: 32.5vi;
   }
 }

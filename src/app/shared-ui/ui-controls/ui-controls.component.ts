@@ -76,7 +76,7 @@ export class UiControlsComponent implements OnInit {
       htmlElement.setAttribute('reduced-motion', '');
     }
 
-    htmlElement.style.fontSize = `${this.baseFontSize}px`;
+    htmlElement.style.fontSize = `${this.baseFontSize / 16 * 62.5}%`; // 62.5% = 10px/16px * 100%
 
     this.saveSettings();
   }
