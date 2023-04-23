@@ -7,10 +7,10 @@
   max-width: 100dvw;
 
   opacity: 0;
-  animation: body-fade-in var(--app-reveal-duration) ease-in forwards
+  animation: app-fade-in var(--app-reveal-duration) ease-in forwards
     var(--app-reveal-delay) !important;
 
-  @keyframes body-fade-in {
+  @keyframes app-fade-in {
     0% {
       opacity: 0;
     }
@@ -63,7 +63,7 @@
       }
     }
 
-    body[vertical] &::before {
+    :root[vertical] &::before {
       inset-inline-end: 0;
     }
   }
@@ -85,11 +85,11 @@
     gap: 0.25em;
     align-items: center;
 
-    body[rtl] & {
+    :root[rtl] & {
       flex-direction: row-reverse;
     }
 
-    body[vertical] & {
+    :root[vertical] & {
       font-size: min(0.875em, 7dvi);
     }
 
@@ -100,7 +100,7 @@
       transform: scale(1, 8) translateY(100%);
 
       &,
-      body[dark-mode] & {
+      :root[dark-mode] & {
         animation: hero-title-slide-up--dark calc(0.375 * var(--base-duration))
           cubic-bezier(0.53, 1.02, 0.41, 0.95) forwards
           calc(0.125 * var(--base-duration) + var(--wait-for-app-reveal));
@@ -112,7 +112,7 @@
           calc(0.125 * var(--base-duration) + var(--wait-for-app-reveal));
       }
 
-      body[light-mode] & {
+      :root[light-mode] & {
         animation: hero-title-slide-up--light calc(0.375 * var(--base-duration))
           cubic-bezier(0.53, 1.02, 0.41, 0.95) forwards
           calc(0.125 * var(--base-duration) + var(--wait-for-app-reveal));

@@ -30,7 +30,7 @@
       padding-block: 0.8125rem;
       padding-inline: 1.0625rem;
 
-      body[vertical] & {
+      :root[vertical] & {
         position: absolute;
         inset-block-start: -2.75rem;
         inset-inline-start: 0;
@@ -43,7 +43,7 @@
     button {
       inline-size: 100%;
 
-      body[vertical] & {
+      :root[vertical] & {
         position: absolute;
         height: 13.25rem;
         inset-block-end: 0;
@@ -89,7 +89,7 @@
     .characters-filter fade out effect 
   */
 
-  body:not([reduced-motion])
+  :root:not([reduced-motion])
     .navigation-tabs:has(li:not(:first-child) a:active)
     ~ &
     .characters-filter {
@@ -132,7 +132,7 @@
   }
 
   @media (max-height: 30rem) {
-    body[vertical] & .characters .characters-filter {
+    :root[vertical] & .characters .characters-filter {
       gap: 0 !important;
       grid-template-columns: 1fr 2.75rem !important;
 

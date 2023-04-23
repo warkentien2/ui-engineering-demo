@@ -86,7 +86,7 @@ export class ElectricPulseComponent implements OnInit, OnDestroy {
   }
 
   tryAnimation(index, duration): void {
-    this.hasReducedMotion = window.matchMedia(`(prefers-reduced-motion: reduce)`).matches || document.querySelector('body[reduced-motion]');
+    this.hasReducedMotion = window.matchMedia(`(prefers-reduced-motion: reduce)`).matches || document.querySelector('html[reduced-motion]');
 
     if (Boolean(this.isAnimating) || Boolean(this.hasReducedMotion)) {
       return;

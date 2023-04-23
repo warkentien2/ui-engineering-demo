@@ -17,12 +17,12 @@
     filter: hue-rotate(75deg) saturate(2);
   }
 
-  body[rtl] & {
+  :root[rtl] & {
     inset-inline-start: initial;
     inset-inline-end: -1.234375em;
   }
 
-  body[vertical] & {
+  :root[vertical] & {
     inset-block-start: calc(-1 * min(13.75vh, 7rem));
     inset-inline-start: 2rem;
     rotate: 90deg;

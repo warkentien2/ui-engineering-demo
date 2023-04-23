@@ -1,9 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 
 :root {
-  color-scheme: dark; /* try light */
-  direction: ltr; /* try rtl */
-  writing-mode: horizontal-tb; /* try vertical-rl (with direction: ltr) */
+  color-scheme: dark;
+  direction: ltr;
+  writing-mode: horizontal-tb;
+  hyphenate-character: "-";
+  text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
 
   /* Global vars */
 
@@ -58,34 +61,28 @@
   @media (prefers-reduced-motion: reduce) {
     --base-duration: 0s;
   }
-}
-
-html {
-  hyphenate-character: "-";
-  text-size-adjust: 100%;
-  text-rendering: optimizeLegibility;
 
   /* for testing 
-    add attribute to BODY
+    add attribute to HTML
   */
 
-  body[dark-mode] {
+  &[dark-mode] {
     color-scheme: dark;
   }
 
-  body[light-mode] {
+  &[light-mode] {
     color-scheme: light;
   }
 
-  body[ltr] {
+  &[ltr] {
     direction: ltr;
   }
 
-  body[rtl] {
+  &[rtl] {
     direction: rtl;
   }
 
-  body[vertical] {
+  &[vertical] {
     direction: ltr;
     writing-mode: vertical-rl;
     text-orientation: sideways;
@@ -104,7 +101,7 @@ html {
     }
   }
 
-  body[dark-mode] {
+  &[dark-mode] {
     --backdrop: #1e272e;
     --bg-primary: #2b343b;
     --bg-primary-variant: #384047;
@@ -113,7 +110,7 @@ html {
     --text-primary-variant: #abaeb0;
   }
 
-  body[light-mode] {
+  &[light-mode] {
     --backdrop: #e6e9ed;
     --bg-primary: #f2f4f7;
     --bg-primary-variant: #e0e3e8;
@@ -122,7 +119,7 @@ html {
     --text-primary-variant: #8b8a8e;
   }
 
-  body[reduced-motion] {
+  &[reduced-motion] {
     --base-duration: 0s;
   }
 }
@@ -145,7 +142,7 @@ body {
       var(--backdrop) var(--main-header-block-size)
     );
 
-  &[vertical] {
+  :root[vertical] & {
     --main-header-block-size: 12.0625rem;
     background: var(--backdrop)
       linear-gradient(
@@ -211,7 +208,7 @@ body {
 }
 
 @media (min-height: 30.0001rem) {
-  body[vertical] {
+  :root[vertical] {
     .media-sm {
       display: none !important;
     }
@@ -223,7 +220,7 @@ body {
 }
 
 @media (max-height: 30rem) {
-  body[vertical] {
+  :root[vertical] {
     .media-sm {
       display: block !important;
     }

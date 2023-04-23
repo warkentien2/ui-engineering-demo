@@ -16,7 +16,7 @@ export class UiControlsComponent implements OnInit {
   hasReducedMotion = window.matchMedia(`(prefers-reduced-motion: reduce)`).matches;
 
   ngOnInit(): void {
-    this.cleanUpBody();
+    this.cleanUpRoot();
     this.loadSettings();
     this.applyChanges();
   }
@@ -39,20 +39,18 @@ export class UiControlsComponent implements OnInit {
     }
   }
 
-  cleanUpBody(): void {
-    const body = document.body;
+  cleanUpRoot(): void {
     const htmlElement = document.documentElement;
 
-    body.removeAttribute('dark-mode');
-    body.removeAttribute('light-mode');
-    body.removeAttribute('vertical');
-    body.removeAttribute('rtl');
-    body.removeAttribute('reduced-motion');
+    htmlElement.removeAttribute('dark-mode');
+    htmlElement.removeAttribute('light-mode');
+    htmlElement.removeAttribute('vertical');
+    htmlElement.removeAttribute('rtl');
+    htmlElement.removeAttribute('reduced-motion');
     htmlElement.removeAttribute('style');
   }
 
   applyChanges(): void {
-    const body = document.body;
     const htmlElement = document.documentElement;
 
     console.log('updated UI settings: ');
@@ -63,19 +61,19 @@ export class UiControlsComponent implements OnInit {
       prefersReducedMotion: this.hasReducedMotion,
     });
 
-    this.cleanUpBody();
+    this.cleanUpRoot();
 
     // update
 
     if (this.isDarkMode) {
-      body.setAttribute('dark-mode', '');
+      htmlElement.setAttribute('dark-mode', '');
     } else {
-      body.setAttribute('light-mode', '');
+      htmlElement.setAttribute('light-mode', '');
     }
-    body.setAttribute(this.textDirection, '');
+    htmlElement.setAttribute(this.textDirection, '');
 
     if ( this.hasReducedMotion) {
-      body.setAttribute('reduced-motion', '');
+      htmlElement.setAttribute('reduced-motion', '');
     }
 
     htmlElement.style.fontSize = `${this.baseFontSize}px`;

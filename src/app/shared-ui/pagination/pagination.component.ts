@@ -84,8 +84,8 @@ export class PaginationComponent implements OnChanges, OnInit {
   }
 
   checkIfVertical(): boolean {
-    return getComputedStyle(document.querySelector('body')).writingMode ===
-    'vertical-rl' || document.querySelector('body').hasAttribute('vertical');
+    return getComputedStyle(document.documentElement).writingMode ===
+    'vertical-rl' || document.documentElement.hasAttribute('vertical');
   }
 
   updateMaxVisibleItems(): void {
