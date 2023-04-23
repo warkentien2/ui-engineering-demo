@@ -41,13 +41,18 @@
 
     tr {
       --tr-shadow: 0 0.0625rem 0.1875rem rgba(0, 0, 0, 0.11),
-        0 0 0 0.0625rem var(--bg-primary-hover);
+        0 0 0 0.0625rem var(--bg-primary-variant);
       box-shadow: var(--tr-shadow);
       display: flex;
       border-radius: 0.1875rem;
       transition: all calc(0.2 * var(--base-duration))
         cubic-bezier(0.31, 0.95, 0.35, 1);
       background: var(--bg-primary);
+
+      &:focus-visible {
+        outline: 0.125rem solid var(--text-accent);
+        z-index: 5;
+      }
     }
 
     tr + tr {
@@ -89,7 +94,7 @@
       cursor: pointer;
 
       &:hover {
-        background: var(--bg-primary-hover);
+        background: var(--bg-primary-variant);
         color: var(--text-accent);
         transition: all calc(0 * var(--base-duration));
       }

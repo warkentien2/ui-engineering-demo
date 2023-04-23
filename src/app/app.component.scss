@@ -40,8 +40,7 @@
       }
     }
 
-    &::before,
-    body[dark-mode] &::before {
+    &::before {
       content: "";
       position: absolute;
       inline-size: var(--main-header-block-size);
@@ -62,20 +61,6 @@
       100% {
         transform: scale(1);
       }
-    }
-
-    @media (prefers-color-scheme: light) {
-      &::before {
-        background: url("../assets/images/hero-invert-colors.svg") center
-          0.8125rem no-repeat;
-        background-size: 100%;
-      }
-    }
-
-    body[light-mode] &::before {
-      background: url("../assets/images/hero-invert-colors.svg") center
-        0.8125rem no-repeat;
-      background-size: 100%;
     }
 
     body[vertical] &::before {
@@ -210,7 +195,7 @@
     }
 
     a {
-      color: var(--text-primary-muted);
+      color: var(--text-primary-variant);
       text-decoration: none;
       font: var(--font-lg);
 

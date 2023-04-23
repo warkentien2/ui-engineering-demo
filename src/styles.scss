@@ -27,34 +27,29 @@
 
   /* Colors */
 
+  --bg-accent: #7b68ee;
+  --bg-accent-variant: #6c58de;
+  --text-accent: #7b68ee;
+  --text-accent-variant: #6c58de;
+  --text-accent-complement: #fff;
+  --bg-hero: #f2f4f7;
+
   --backdrop: #1e272e;
   --bg-primary: #2b343b;
-  --bg-primary-hover: #384047;
+  --bg-primary-variant: #384047;
   --bg-secondary: #fff;
-  --bg-secondary-muted: #7c828d;
-  --bg-accent: #7b68ee;
-  --bg-hero: #f2f4f7;
+  --bg-secondary-variant: #d0d1d2;
   --text-primary: #fff;
-  --text-primary-muted: #abaeb0;
+  --text-primary-variant: #abaeb0;
   --text-secondary: #292d34;
-  --text-secondary-muted: #384047;
   --text-placeholder: #7c828d;
-  --text-accent: #7b68ee;
 
   @media (prefers-color-scheme: light) {
-    --backdrop: #fff;
-    --bg-primary: #f4f4f4;
-    --bg-primary-hover: #fff;
-    --bg-secondary: #efefef;
-    --bg-secondary-muted: #2b343b;
-    --bg-accent: #7b68ee;
-    --bg-hero: #f3f3f3;
-    --text-primary: #090d14;
-    --text-primary-muted: #788087;
-    --text-secondary: #abaeb0;
-    --text-secondary-muted: #fff;
-    --text-placeholder: #7c828d;
-    --text-accent: #7b68ee;
+    --backdrop: #e6e9ed;
+    --bg-primary: #f2f4f7;
+    --bg-primary-variant: #e0e3e8;
+    --text-primary: #1e272e;
+    --text-primary-variant: #7c828d;
   }
 
   /* Animations: base multiplier */
@@ -112,33 +107,19 @@ html {
   body[dark-mode] {
     --backdrop: #1e272e;
     --bg-primary: #2b343b;
-    --bg-primary-hover: #384047;
-    --bg-secondary: #fff;
-    --bg-secondary-muted: #7c828d;
-    --bg-accent: #7b68ee;
-    --bg-hero: #f2f4f7;
+    --bg-primary-variant: #384047;
+    --bg-secondary-variant: #d0d1d2;
     --text-primary: #fff;
-    --text-primary-muted: #abaeb0;
-    --text-secondary: #292d34;
-    --text-secondary-muted: #384047;
-    --text-placeholder: #7c828d;
-    --text-accent: #7b68ee;
+    --text-primary-variant: #abaeb0;
   }
 
   body[light-mode] {
-    --backdrop: #fff;
-    --bg-primary: #f4f4f4;
-    --bg-primary-hover: #fff;
-    --bg-secondary: #efefef;
-    --bg-secondary-muted: #2b343b;
-    --bg-accent: #7b68ee;
-    --bg-hero: #f3f3f3;
-    --text-primary: #090d14;
-    --text-primary-muted: #788087;
-    --text-secondary: #abaeb0;
-    --text-secondary-muted: #fff;
-    --text-placeholder: #7c828d;
-    --text-accent: #7b68ee;
+    --backdrop: #e6e9ed;
+    --bg-primary: #f2f4f7;
+    --bg-primary-variant: #e0e3e8;
+    --bg-secondary-variant: #d8d7d7;
+    --text-primary: #1e272e;
+    --text-primary-variant: #8b8a8e;
   }
 
   body[reduced-motion] {
@@ -154,7 +135,9 @@ body {
   min-block-size: 100vh;
   min-block-size: 100dvb;
   min-inline-size: 100dvmin;
+
   /* match layout colors */
+
   background: var(--backdrop)
     linear-gradient(
       to bottom,
@@ -172,50 +155,36 @@ body {
       );
   }
 
+  @-moz-document url-prefix() {
+    background: var(--backdrop);
+  }
+
   &,
   * {
     position: relative;
     box-sizing: border-box;
-    outline-color: var(--text-accent);
   }
 
-  @mixin darkModeInputStyles {
-    background-color: var(--bg-secondary);
-    color: var(--text-secondary);
-
-    &::placeholder {
-      color: var(--text-placeholder);
-    }
+  *:focus-visible,
+  [aria-label]:focus-visible {
+    outline: 0.125rem solid var(--text-accent);
+    outline-offset: 0.125rem;
   }
 
-  @mixin lightModeInputStyles {
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
-
-    &::placeholder {
-      color: var(--text-placeholder);
-    }
+  *:focus:not(:focus-visible) {
+    outline: none !important;
   }
 
   input[type="text"],
   input[type="number"] {
     & {
-      @include darkModeInputStyles;
+      background-color: var(--bg-secondary);
+      color: var(--text-secondary);
+
+      &::placeholder {
+        color: var(--text-placeholder);
+      }
     }
-
-    @media (prefers-color-scheme: light) {
-      @include lightModeInputStyles;
-    }
-  }
-
-  &[dark-mode] input[type="text"],
-  &[dark-mode] input[type="number"] {
-    @include darkModeInputStyles;
-  }
-
-  &[light-mode] input[type="text"],
-  &[light-mode] input[type="number"] {
-    @include lightModeInputStyles;
   }
 }
 
@@ -273,25 +242,8 @@ button {
 
 button.accent-button {
   background-color: var(--bg-accent);
-  color: var(--text-primary);
-  outline-color: var(--text-primary);
-
-  @media (prefers-color-scheme: light) {
-    color: var(--text-secondary-muted);
-    outline-color: var(--text-primary-muted);
-  }
-
-  body[dark-mode] & {
-    color: var(--text-primary);
-    outline-color: var(--text-primary);
-  }
-
-  body[light-mode] & {
-    color: var(--text-secondary-muted);
-    outline-color: var(--text-primary-muted);
-  }
-
-  transition: calc(0.125 * var(--base-duration)) ease-out;
+  color: var(--text-accent-complement);
+  transition: all calc(0.125 * var(--base-duration)) ease-out;
 
   span {
     display: inline-block;
@@ -302,7 +254,16 @@ button.accent-button {
     transition: inherit;
   }
 
-  &:hover:not(:active) > * {
-    transform: scale(1.05) translateZ(0);
+  &:hover {
+    background-color: var(--bg-accent-variant);
+  }
+
+  &:hover:active > * {
+    transform: scale(0.975) translateZ(0);
+  }
+
+  &:focus-visible {
+    outline: 0.125rem solid var(--text-accent);
+    outline-offset: 0.125rem;
   }
 }

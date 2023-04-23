@@ -17,15 +17,46 @@
     li {
       padding: 0.625rem;
       block-size: 2rem;
-    }
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
 
-    li.disabled {
-      cursor: default;
-    }
+      &::before {
+        content: "";
+        position: absolute;
+        block-size: 1.75rem;
+        inline-size: 1.75rem;
+        border-radius: 50%;
+        z-index: -1;
+      }
 
-    li:not(.disabled):hover,
-    li:not(.disabled).active {
-      color: var(--text-accent);
+      &.disabled {
+        cursor: default;
+      }
+
+      &:not(.disabled) {
+        &:hover::before {
+          background: var(--bg-primary);
+        }
+
+        &.active {
+          color: var(--text-accent);
+          font-weight: bold;
+
+          &::before {
+            background: var(--bg-secondary);
+          }
+        }
+      }
+
+      &:focus-visible {
+        outline: none;
+
+        &::before {
+          outline: 0.125rem solid var(--text-accent);
+          outline-offset: 0.125rem;
+        }
+      }
     }
 
     /* (Progressive enhancement)
@@ -39,10 +70,11 @@
       --_button-font-size: 1.25rem;
 
       cursor: pointer;
-      border: none;
+      border: 1px solid var(--bg-primary-variant);
       border-radius: 0.25rem;
-      background-color: var(--bg-secondary);
-      color: var(--text-secondary);
+      box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.5);
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
       transition: background-color calc(0.3 * var(--base-duration));
       display: flex;
       align-items: baseline;
@@ -55,8 +87,14 @@
       padding: 0;
 
       &:hover:not([hidden]) {
-        background-color: var(--bg-accent);
-        color: var(--text-primary);
+        background: var(--bg-primary-variant);
+        color: var(--text-accent);
+        transition: all calc(0 * var(--base-duration));
+      }
+
+      &:active:not([hidden]) {
+        transform: translateY(0.0625rem);
+        box-shadow: inset 0px 1px 1px 0px rgba(0, 0, 0, 0.5);
       }
 
       &[hidden] {

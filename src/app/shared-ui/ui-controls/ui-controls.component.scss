@@ -1,11 +1,16 @@
 :host {
   --_ui-controls-button-size: 5rem;
+  --_ui-controls-shadow: 0 1px 1px hsl(0deg 0% 0% / 0.075),
+    0 2px 2px hsl(0deg 0% 0% / 0.075), 0 4px 4px hsl(0deg 0% 0% / 0.075),
+    0 8px 8px hsl(0deg 0% 0% / 0.075), 0 16px 16px hsl(0deg 0% 0% / 0.075);
+
   position: fixed;
   inset-block-end: 0;
   inset-inline-end: 0;
   block-size: var(--_ui-controls-button-size);
   inline-size: var(--_ui-controls-button-size);
   border-start-start-radius: 50%;
+  box-shadow: var(--_ui-controls-shadow);
 
   .ui-controls {
     --_ui-controls__font-size: 8vmin;
@@ -58,9 +63,7 @@
     padding: 0.9375rem;
     block-size: max-content;
     min-inline-size: var(--_ui-form-width);
-    box-shadow: 0 1px 1px hsl(0deg 0% 0% / 0.075),
-      0 2px 2px hsl(0deg 0% 0% / 0.075), 0 4px 4px hsl(0deg 0% 0% / 0.075),
-      0 8px 8px hsl(0deg 0% 0% / 0.075), 0 16px 16px hsl(0deg 0% 0% / 0.075);
+    box-shadow: var(--_ui-controls-shadow);
     margin: -7.5vmin;
     opacity: 0;
     transform: scale(0.75);
@@ -138,16 +141,12 @@
       block-size: 2rem;
       inline-size: 2rem;
       border: none;
+      border-radius: 50%;
       font-size: var(--_controls-close__font-size);
       font-weight: var(--_controls-close__font-weight);
-      background: none;
-      color: var(--text-primary);
-      text-shadow: 0 0 1.5px var(--text-secondary),
-        0 0 1.5px var(--text-secondary), 0 0 1.5px var(--text-secondary),
-        0 0 1.5px var(--text-secondary), 0 0 1.5px var(--text-secondary),
-        0 0 1.5px var(--text-secondary), 0 0 1.5px var(--text-secondary),
-        0 0 1.5px var(--text-secondary), 0 0 1.5px var(--text-secondary),
-        0 0 1.5px var(--text-secondary);
+      background: var(--bg-secondary);
+      color: var(--text-secondary);
+      box-shadow: var(--_ui-controls-shadow);
       cursor: pointer;
     }
 
