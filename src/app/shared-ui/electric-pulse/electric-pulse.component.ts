@@ -41,11 +41,11 @@ export class ElectricPulseComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     setTimeout(() => {
-      this.tryAnimation(0, 125);
+      this.tryAnimation(0, 100);
     }, 1375);
     this.subscription = this.sharedService.triggerChild$.subscribe(() => {
       if (!Boolean(this.isAnimating)) {
-        this.tryAnimation(0, 125);
+        this.tryAnimation(0, 100);
       }
     });
   }

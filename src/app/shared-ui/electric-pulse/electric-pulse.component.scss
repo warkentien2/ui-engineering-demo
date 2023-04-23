@@ -14,7 +14,7 @@
     inset-inline-start: 0;
     block-size: 100%;
     inline-size: 100%;
-    filter: hue-rotate(75deg);
+    filter: hue-rotate(75deg) saturate(2);
   }
 
   body[rtl] & {
