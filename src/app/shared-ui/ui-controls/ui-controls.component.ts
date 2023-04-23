@@ -21,12 +21,22 @@ export class UiControlsComponent implements OnInit {
     this.applyChanges();
   }
 
-  toggleForm(): void {
+  toggleForm(event?: MouseEvent): void {
+    if (event) {
+      event.stopPropagation();
+    }
+
     this.showForm = !this.showForm;
   }
 
-  closeForm(): void {
-    this.showForm = false;
+  closeForm(event?: MouseEvent): void {
+    if (event) {
+      event.stopPropagation();
+    }
+
+    if (this.showForm) {
+      this.showForm = false;
+    }
   }
 
   cleanUpBody(): void {

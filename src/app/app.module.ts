@@ -13,6 +13,7 @@ import { PaginationComponent } from './shared-ui/pagination/pagination.component
 import { TabularListComponent } from './shared-ui/tabular-list/tabular-list.component';
 import { UiControlsComponent } from './shared-ui/ui-controls/ui-controls.component';
 import { ActiveLinkDirective } from './directives/active-link.directive';
+import { ClickOutsideDirective } from './directives/click-outside.directive';
 import { ReplaceHyphenPipe } from './pipes/replace-hyphen.pipe';
 
 @NgModule({
@@ -20,6 +21,7 @@ import { ReplaceHyphenPipe } from './pipes/replace-hyphen.pipe';
     AppComponent,
     ActiveLinkDirective,
     CharactersComponent,
+    ClickOutsideDirective,
     ElectricPulseComponent,
     EpisodesComponent,
     IndividualComponent,
