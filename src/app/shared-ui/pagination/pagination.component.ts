@@ -5,12 +5,23 @@ import {
   HostListener,
   Input,
   OnChanges,
+  OnDestroy,
   OnInit,
   Output,
   SimpleChanges,
   ViewEncapsulation
 } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+
+import { UiSettingsService } from '../../services/ui-settings.service';
+
+interface UiSettings {
+  darkMode: boolean;
+  textDirection: string;
+  baseFontSize: number;
+  prefersReducedMotion: boolean;
+}
 
 @Component({
   selector: 'ui-pagination',
@@ -18,16 +29,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./pagination.component.scss'],
   encapsulation: ViewEncapsulation.Emulated,
 })
-export class PaginationComponent implements OnChanges, OnInit {
+export class PaginationComponent implements OnChanges, OnDestroy, OnInit {
   @HostBinding('class') hostClasses = 'pagination';
   @Input() currentPage = 1;
   @Input() totalPages: number;
   @Output() pageChange = new EventEmitter<number>();
 
+  private uiSettingsSubscription: Subscription;
   visiblePages: number[] = [];
   maxVisibleItems = 14;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private uiSettingsService: UiSettingsService) {}
 
   @HostListener('window:resize', ['$event'])
   onResize(event): void {
@@ -36,12 +48,26 @@ export class PaginationComponent implements OnChanges, OnInit {
 
   ngOnInit(): void {
     this.updateMaxVisibleItems();
+
+    this.uiSettingsSubscription = this.uiSettingsService.baseFontSizeChange$.subscribe((newBaseFontSize: number) => {
+      this.updateMaxVisibleItems();
+    });
+
+    this.uiSettingsSubscription.add(
+      this.uiSettingsService.textDirectionChange$.subscribe((newTextDirection: string) => {
+        this.updateMaxVisibleItems();
+      }),
+    );
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.totalPages || changes.currentPage) {
       this.generateVisiblePages();
     }
+  }
+
+  ngOnDestroy(): void {
+    this.uiSettingsSubscription.unsubscribe();
   }
 
   generateVisiblePages(): void {

@@ -1,5 +1,7 @@
 import { Component, HostBinding, OnInit, ViewEncapsulation } from '@angular/core';
 
+import { UiSettingsService, UiSettings } from '../../services/ui-settings.service';
+
 @Component({
   selector: 'ui-controls',
   templateUrl: './ui-controls.component.html',
@@ -14,6 +16,8 @@ export class UiControlsComponent implements OnInit {
   textDirection = 'ltr';
   baseFontSize = 16;
   hasReducedMotion = window.matchMedia(`(prefers-reduced-motion: reduce)`).matches;
+
+  constructor(private uiSettingsService: UiSettingsService) {}
 
   ngOnInit(): void {
     this.cleanUpRoot();
@@ -78,6 +82,14 @@ export class UiControlsComponent implements OnInit {
 
     htmlElement.style.fontSize = `${this.baseFontSize / 16 * 62.5}%`; // 62.5% = 10px/16px * 100%
 
+    const newSettings = {
+      darkMode: this.isDarkMode,
+      textDirection: this.textDirection,
+      baseFontSize: this.baseFontSize,
+      prefersReducedMotion: this.hasReducedMotion
+    };
+    this.uiSettingsService.updateSettings(newSettings);
+
     this.saveSettings();
   }
 
@@ -96,13 +108,14 @@ export class UiControlsComponent implements OnInit {
   }
 
   private saveSettings(): void {
-    const settings = {
+    const settings: UiSettings = {
       darkMode: this.isDarkMode,
       textDirection: this.textDirection,
       baseFontSize: this.baseFontSize,
-      prefersReducedMotion: this.hasReducedMotion
+      prefersReducedMotion: this.hasReducedMotion,
     };
     localStorage.setItem('ui-controls-settings', JSON.stringify(settings));
+    this.uiSettingsService.updateSettings(settings);
   }
 
   // Fix two-way data binding checkbox bug
