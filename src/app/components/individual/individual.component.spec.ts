@@ -1,17 +1,15 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { IndividualComponent } from './individual.component';
 
 describe('IndividualComponent', () => {
   let component: IndividualComponent;
   let fixture: ComponentFixture<IndividualComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ IndividualComponent ]
-    })
-    .compileComponents();
-  }));
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [IndividualComponent],
+    }).compileComponents();
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(IndividualComponent);
@@ -22,4 +20,6 @@ describe('IndividualComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  // Add more individual-specific tests here
 });

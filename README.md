@@ -7,10 +7,9 @@
 5. Used a different font, explained on the [fonts file](src/assets/fonts/fonts.scss)
 6. First time with this version of Angular (only played with the old Angular.js, 8+ years ago):
    - so, not all decisions might be up to standard with the Angular community
-   - I might have introduced a few bugs. Happy to tackle them later
 7. I have a backlog of pending improvements for this code, but I had to stop somewhere
 
-Going Beyond task list:
+Going Beyond task list: (improvements part of this PR)
 
 - ~~[ ] use SVG for hero img // no color change~~
 - [x] Improve UI: use SVGs for search and settings icon
@@ -20,34 +19,38 @@ Going Beyond task list:
 - [x] fix light mode colors, specially for hero
 - [x] remove text wrapping from table, create wrapped + smaller tables on small screens (no empty space, smaller gaps)
 - [x] add namespace to global classes and helpers(.rm-)
-- [ ] add loading screen (window.onload?) test when trying to host page online
 - [x] Dynamically create hero title {{title}}
-- [ ] Add empty search result page
-- [ ] Fix: add ability to clear the search word (back to show all) // error exists in base project
-- [ ] handle 404 pages?
-- [ ] Test TabularList layout on large font + small screen
 - [x] apply Bem CSS, and :host.base-class-name
 - ~~[ ] Format scss file structure, modularize~~
-- [ ] Improve Pagination voice over
 - [x] Rerender Pagination on base font-size change, and textDirection
-- [ ] improve form voice over
-- [ ] improve TabularList voice over with column info: https://webaim.org/techniques/forms/advanced
-- [ ] add custom scrollbar (make it thick)
 - [x] Fix checkboxes
 - [x] fix character active tab
-- [ ] Run all possible accessibility checks
-- [ ] Run lighthouse checks
-- [ ] add unit tests
-- [ ] add e2e tests
 - [x] modularize all components
 - [x] fix ltr hero title
 - [x] Improve Vertical layout
 - [x] Handle reduced motion (and controls)
+
+Backlog:
+
+- [ ] add loading screen (window.onload?) test when trying to host page online
+- [ ] Add empty search result page
+- [ ] Fix: add ability to clear the search word (back to show all) // error exists in base project
+- [ ] handle 404 pages?
+- [ ] Test TabularList layout on large font + small screen
+- [ ] Improve Pagination voice over
+- [ ] improve form voice over
+- [ ] improve TabularList voice over with column info: https://webaim.org/techniques/forms/advanced
+- [ ] add custom scrollbar (make it thick)
+- [ ] Run all possible accessibility checks
+- [ ] Run lighthouse checks
 - [ ] create reduce header on scroll variant
 - [ ] Perfect pagination with "scroll-to-active" animation (while keeping accessibility)
 - [ ] Lazy Load?
+- [ ] add unit tests // had issues running karma. Debug later
+- [ ] add e2e tests // package.json and config files tied to karma bug. WIP: git stashed
 
 \*\* If you run into an issue running `$ yarn install` try `$ npm install`. (node version v18.10.0)
+\*\* For testing use node version 14 lts.
 
 # ClickUp UI/UX Engineer Mini Project
 

@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { TabularListComponent } from './tabular-list.component';
 
 describe('TabularListComponent', () => {
@@ -8,9 +7,8 @@ describe('TabularListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TabularListComponent ]
-    })
-    .compileComponents();
+      declarations: [TabularListComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -21,5 +19,9 @@ describe('TabularListComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should have hostClasses', () => {
+    expect(component.hostClasses).toEqual('tabular-list');
   });
 });

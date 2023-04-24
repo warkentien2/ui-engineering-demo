@@ -1,17 +1,20 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 import { CharactersComponent } from './characters.component';
+import { CharactersService } from '../../services/characters.service';
 
 describe('CharactersComponent', () => {
   let component: CharactersComponent;
   let fixture: ComponentFixture<CharactersComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ CharactersComponent ]
-    })
-    .compileComponents();
-  }));
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule, RouterTestingModule],
+      declarations: [CharactersComponent],
+      providers: [CharactersService],
+    }).compileComponents();
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(CharactersComponent);
@@ -22,4 +25,6 @@ describe('CharactersComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  // Add more tests here
 });
