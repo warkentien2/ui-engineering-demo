@@ -1,6 +1,6 @@
 :host {
   --_ui-controls-button-size: 8rem;
-  --_ui-controls-shadow: 0 1px 1px hsl(0deg 0% 0% / 0.075),
+  --_ui-controls-shadow: 0 0.1rem 0.1rem hsl(0deg 0% 0% / 0.075),
     0 0.2rem 0.2rem hsl(0deg 0% 0% / 0.075),
     0 0.4rem 0.4rem hsl(0deg 0% 0% / 0.075),
     0 0.8rem 0.8rem hsl(0deg 0% 0% / 0.075),
@@ -60,7 +60,7 @@
       var(--_ui-controls-button-size)
     );
     background-color: #fff;
-    border: 1px solid #ccc;
+    border: 0.1rem solid #ccc;
     border-radius: 0.5rem;
     padding: 1.5rem;
     block-size: max-content;

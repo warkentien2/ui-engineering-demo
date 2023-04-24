@@ -107,13 +107,13 @@ export class PaginationComponent implements OnChanges, OnInit {
       screenInlineRem = this.pixelsToRem(window.innerHeight);
     }
 
-    if (screenInlineRem <= 34 && this.maxVisibleItems !== 5) {
+    if (screenInlineRem <= 54.4 && this.maxVisibleItems !== 5) {
       this.maxVisibleItems = 3;
       this.generateVisiblePages();
-    } else if (screenInlineRem <= 50 && this.maxVisibleItems !== 10) {
+    } else if (screenInlineRem <= 80 && this.maxVisibleItems !== 10) {
       this.maxVisibleItems = 7;
       this.generateVisiblePages();
-    } else if (screenInlineRem > 50 && this.maxVisibleItems !== 14) {
+    } else if (screenInlineRem > 80 && this.maxVisibleItems !== 14) {
       this.maxVisibleItems = 14;
       this.generateVisiblePages();
     }

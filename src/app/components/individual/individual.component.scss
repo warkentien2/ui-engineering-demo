@@ -3,8 +3,8 @@
   padding-inline: 3.6rem;
   inline-size: min(61.4rem, calc(100vi - 3.2rem));
   background: var(--bg-primary);
-  border: 1px solid var(--bg-primary-variant);
-  box-shadow: 0 1px 0.3rem rgba(0, 0, 0, 0.11);
+  border: 0.1rem solid var(--bg-primary-variant);
+  box-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.11);
   border-radius: 1rem;
   margin: auto;
   display: grid;
