@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, HostBinding, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { CharacterApiResponse } from '../../api_responses/characterapiresponse';
@@ -11,6 +11,8 @@ import { CharactersService } from '../../services/characters.service';
   encapsulation: ViewEncapsulation.Emulated,
 })
 export class CharactersComponent implements OnInit {
+  @HostBinding('class') hostClasses = 'characters-container';
+
   characterCall: CharacterApiResponse;
   pages: number[];
   currentPage = 1;

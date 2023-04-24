@@ -1,15 +1,16 @@
-<header (click)="onClick()">
-  <h1 tabindex="0" aria-label="The Rick and Morty">
-    <span tabindex="-1">The</span> <span tabindex="-1">Rick</span>
-    <span tabindex="-1">and</span> <span tabindex="-1">Morty</span>
+<header class="hero" (click)="onHeroClick()">
+  <h1 class="hero__title" tabindex="0" [attr.aria-label]="title">
+    <ng-container *ngFor="let word of title.split(' ')">
+      <span class="hero__title-word" tabindex="-1">{{ word }}</span>
+    </ng-container>
     <ui-electric-pulse class="media-lg"></ui-electric-pulse>
   </h1>
 </header>
 
-<main>
-  <nav class="navigation-tabs">
-    <ul>
-      <li>
+<main class="page">
+  <nav class="page__navigation">
+    <ul class="nav-tabs">
+      <li class="nav-tabs__tab">
         <a
           routerLink="/characters"
           [queryParams]="{
@@ -17,11 +18,15 @@
             nameSearch: characterNameSearch
           }"
           [class.active]="isActiveRoute('/character')"
+          class="nav-tabs__link"
           >Characters</a
         >
       </li>
-      <li>
-        <a routerLink="/episodes" [class.active]="isActiveRoute('/episodes')"
+      <li class="nav-tabs__tab">
+        <a
+          routerLink="/episodes"
+          [class.active]="isActiveRoute('/episodes')"
+          class="nav-tabs__link"
           >Episode Guide</a
         >
       </li>

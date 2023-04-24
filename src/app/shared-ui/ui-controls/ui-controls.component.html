@@ -1,12 +1,12 @@
 <button
   #buttonRef
-  class="ui-controls accent-button"
+  class="ui-controls__open accent-button"
   (click)="toggleForm($event)"
   attr.aria-label="{{ showForm ? 'Close UI settings' : 'Open UI Settings' }}"
   attr.title="{{ showForm ? 'Close UI settings' : 'Open UI Settings' }}"
 >
   <svg
-    class="ui-controls-icon"
+    class="ui-controls__icon"
     [ngClass]="{ open: showForm }"
     xmlns="http://www.w3.org/2000/svg"
     enable-background="new 0 0 512 512"
@@ -40,28 +40,31 @@
 </button>
 
 <ng-container *ngIf="showForm">
-  <div class="ui-controls-form" (clickOutside)="closeForm($event)">
-    <form>
-      <fieldset>
-        <legend>Select language direction:</legend>
-        <label aria-label="left to right">
+  <div class="ui-controls__form-container" (clickOutside)="closeForm($event)">
+    <form class="ui-controls__form">
+      <fieldset class="ui-controls__fieldset">
+        <legend class="ui-controls__legend">Select language direction:</legend>
+        <label class="ui-controls__label" aria-label="left to right">
           <input
+            class="ui-controls__input"
             type="radio"
             value="ltr"
             name="textDirection"
             [(ngModel)]="textDirection"
           />
           LTR</label
-        ><label aria-label="right to left">
+        ><label class="ui-controls__label" aria-label="right to left">
           <input
+            class="ui-controls__input"
             type="radio"
             value="rtl"
             name="textDirection"
             [(ngModel)]="textDirection"
           />
           RTL</label
-        ><label>
+        ><label class="ui-controls__label">
           <input
+            class="ui-controls__input"
             type="radio"
             value="vertical"
             name="textDirection"
@@ -70,22 +73,31 @@
           Vertical
         </label>
       </fieldset>
-      <fieldset>
-        <legend>Set UI preferences:</legend>
-        <label>
+      <fieldset class="ui-controls__fieldset">
+        <legend class="ui-controls__legend">Set UI preferences:</legend>
+        <label class="ui-controls__label">
           <input
+            class="ui-controls__input"
             type="checkbox"
             [checked]="isDarkMode"
             (change)="onDarkModeCheckboxChange($event)"
           />
           dark mode
         </label>
-        <label>
-          <input type="number" min="8" max="32" [(ngModel)]="baseFontSize" />
-          <span aria-label="pixels">px</span> base font size
-        </label>
-        <label>
+        <label class="ui-controls__label">
           <input
+            class="ui-controls__input"
+            type="number"
+            min="8"
+            max="32"
+            [(ngModel)]="baseFontSize"
+          />
+          <span class="ui-controls__label__unit" aria-label="pixels">px</span>
+          base font size
+        </label>
+        <label class="ui-controls__label">
+          <input
+            class="ui-controls__input"
             type="checkbox"
             [checked]="hasReducedMotion"
             (change)="onReducedMotionCheckboxChange($event)"
@@ -93,12 +105,16 @@
           reduced motion
         </label>
       </fieldset>
-      <button (click)="applyChanges()" class="controls-submit accent-button">
-        <span>apply changes</span>
+      <button
+        (click)="applyChanges()"
+        class="ui-controls__submit accent-button"
+        type="submit"
+      >
+        <span class="ui-controls__submit-text">apply changes</span>
       </button>
       <button
         (click)="closeForm($event)"
-        class="controls-close"
+        class="ui-controls__close"
         aria-label="Close UI Settings"
       >
         ✕

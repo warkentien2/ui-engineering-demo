@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, HostBinding, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'ui-tabular-list',
@@ -6,11 +6,6 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   styleUrls: ['./tabular-list.component.scss'],
   encapsulation: ViewEncapsulation.Emulated,
 })
-export class TabularListComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class TabularListComponent {
+  @HostBinding('class') hostClasses = 'tabular-list';
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, ElementRef, EventEmitter, ViewEncapsulation, OnDestroy } from '@angular/core';
+import { Component, HostBinding, OnInit, Output, ElementRef, EventEmitter, ViewEncapsulation, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 import { SharedService } from '../../services/shared.service';
@@ -10,6 +10,7 @@ import { SharedService } from '../../services/shared.service';
   encapsulation: ViewEncapsulation.Emulated,
 })
 export class ElectricPulseComponent implements OnInit, OnDestroy {
+  @HostBinding('class') hostClasses = 'electric-pulse';
   @Output() childClick = new EventEmitter<void>();
 
   private subscription: Subscription;

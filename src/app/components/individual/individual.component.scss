@@ -22,13 +22,13 @@
     }
   }
 
-  .card-img {
+  .card__img {
     border-radius: 10rem;
     background: var(--bg-secondary);
     margin: auto;
   }
 
-  .card-body {
+  .card__body {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -36,14 +36,14 @@
     color: var(--text-primary);
   }
 
-  .card-title {
+  .card__title {
     font: var(--font-xl);
     line-height: 1.125em;
     color: inherit;
     text-align: center;
   }
 
-  .card-subtitle {
+  .card__subtitle {
     font: var(--font-md);
     color: inherit;
     word-spacing: 2rem;

@@ -14,7 +14,7 @@
   border-start-start-radius: 50%;
   box-shadow: var(--_ui-controls-shadow);
 
-  .ui-controls {
+  .ui-controls__open {
     --_ui-controls__font-size: 8vmin;
 
     position: absolute;
@@ -27,7 +27,7 @@
     line-height: 1em;
     transform-origin: 50% 50%;
 
-    .ui-controls-icon {
+    .ui-controls__icon {
       position: absolute;
       inset-block-end: 1.8rem;
       inset-inline-end: 1.8rem;
@@ -45,7 +45,7 @@
     }
   }
 
-  .ui-controls-form {
+  .ui-controls__form-container {
     --_ui-form-width: 32rem;
 
     background: var(--bg-secondary);
@@ -73,14 +73,14 @@
     animation: controls-slide-up calc(0.25 * var(--base-duration))
       cubic-bezier(0.31, 0.49, 0.38, 1.13) forwards;
 
-    form {
+    .ui-controls__form {
       font: var(--font-md);
       block-size: 100%;
       border-radius: inherit;
       display: flex;
       flex-direction: column;
 
-      label {
+      .ui-controls__label {
         display: flex;
         align-items: center;
         justify-content: flex-start;
@@ -90,7 +90,7 @@
           background: #eee;
         }
 
-        input {
+        .ui-controls__input {
           max-inline-size: 4.8rem;
 
           :root:not([vertical]) & {
@@ -102,12 +102,12 @@
           }
         }
 
-        span {
+        .ui-controls__label__unit {
           margin-inline: -0.4rem 0.5328rem;
         }
       }
 
-      fieldset {
+      .ui-controls__fieldset {
         border-radius: inherit;
         display: flex;
         flex-direction: column;
@@ -129,7 +129,7 @@
       }
     }
 
-    .controls-close {
+    .ui-controls__close {
       --_controls-close__font-size: 1.8rem;
       --_controls-close__font-weight: bold;
 
@@ -152,7 +152,7 @@
       cursor: pointer;
     }
 
-    .controls-submit {
+    .ui-controls__submit {
       border: none;
       padding-block: 1.2rem;
       padding-inline: 1.6rem;
@@ -164,7 +164,7 @@
       margin-inline: 0.2rem;
     }
 
-    :root[vertical] & .controls-submit {
+    :root[vertical] & .ui-controls__submit {
       margin-block: 0.8rem 0.4rem;
       margin-inline: 0.6rem 0.8rem;
     }

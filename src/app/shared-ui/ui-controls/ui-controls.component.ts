@@ -7,7 +7,7 @@ import { Component, HostBinding, OnInit, ViewEncapsulation } from '@angular/core
   encapsulation: ViewEncapsulation.Emulated
 })
 export class UiControlsComponent implements OnInit {
-  @HostBinding('class') hostClasses = 'ui-controls-anchor';
+  @HostBinding('class') hostClasses = 'ui-controls';
 
   showForm = false;
   isDarkMode = true;

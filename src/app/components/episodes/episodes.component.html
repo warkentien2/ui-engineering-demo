@@ -1,12 +1,13 @@
-<ui-tabular-list no-hover>
+<ui-tabular-list class="episodes__list" no-hover>
   <tbody *ngIf="episodesCall?.results">
     <tr *ngFor="let e of episodesCall.results" tabindex="0">
-      <td class="cell-grow">{{ e.name }}</td>
-      <td class="cell-shrink">{{ e.episode }}</td>
+      <td class="cell--grow">{{ e.name }}</td>
+      <td class="cell--shrink">{{ e.episode }}</td>
     </tr>
   </tbody>
 
   <ui-pagination
+    class="episodes__pagination"
     *ngIf="pages"
     [currentPage]="currentPage"
     [totalPages]="episodesCall.info.pages"

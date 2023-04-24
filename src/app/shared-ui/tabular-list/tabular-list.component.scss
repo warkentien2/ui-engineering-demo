@@ -5,112 +5,112 @@
   grid-template-columns: min(100.2rem, calc(100vi - 3.2rem));
   font: var(--font-sm);
   color: var(--text-primary);
+}
 
-  table {
-    --tabular-list-radius: 0.3rem;
-    background: transparent;
-    border: none;
-    border-spacing: 0;
-    border-collapse: collapse;
-    inline-size: calc(100% + 3.2rem);
-    margin-inline: -1.6rem;
-    padding-block: 1px;
+.tabular-list__table {
+  --tabular-list-radius: 0.3rem;
+  background: transparent;
+  border: none;
+  border-spacing: 0;
+  border-collapse: collapse;
+  inline-size: calc(100% + 3.2rem);
+  margin-inline: -1.6rem;
+  padding-block: 1px;
+  display: flex;
+  overflow-x: auto;
+
+  &:empty {
+    background: var(--bg-primary);
+    padding-block-start: 100%;
+    margin-inline: 0;
+    border-radius: var(--tabular-list-radius);
+    inline-size: 100%;
+  }
+}
+
+::ng-deep {
+  thead,
+  tbody,
+  tfoot {
+    background: inherit;
     display: flex;
-    overflow-x: scroll;
+    flex-direction: column;
+    inline-size: 100%;
+    min-inline-size: fit-content;
+    padding-inline: 1.6rem;
+  }
 
-    &:empty {
-      background: var(--bg-primary);
-      padding-block-start: 100%;
-      margin-inline: 0;
-      border-radius: var(--tabular-list-radius);
-      inline-size: 100%;
+  tr {
+    --tr-shadow: 0 1px 0.3rem rgba(0, 0, 0, 0.11),
+      0 0 0 1px var(--bg-primary-variant);
+    box-shadow: var(--tr-shadow);
+    display: flex;
+    border-radius: 0.3rem;
+    transition: all calc(0.2 * var(--base-duration))
+      cubic-bezier(0.31, 0.95, 0.35, 1);
+    background: var(--bg-primary);
+
+    &:focus-visible {
+      outline: 0.2rem solid var(--text-accent);
+      z-index: 5;
     }
   }
 
-  ::ng-deep {
-    thead,
-    tbody,
-    tfoot {
-      background: inherit;
-      display: flex;
-      flex-direction: column;
-      inline-size: 100%;
-      min-inline-size: fit-content;
-      padding-inline: 1.6rem;
+  tr + tr {
+    margin-block-start: 1px;
+  }
+
+  th,
+  td {
+    min-block-size: 3.8rem;
+    padding-block: 0.8rem;
+    padding-inline: 1.6rem 1.2rem;
+    border: none;
+    inline-size: 13.6rem;
+    font: var(--font-base);
+    line-height: 2rem;
+    display: flex;
+    align-items: center;
+
+    &:first-child {
+      border-radius: var(--tabular-list-radius) 0 0 var(--tabular-list-radius);
     }
 
-    tr {
-      --tr-shadow: 0 1px 0.3rem rgba(0, 0, 0, 0.11),
-        0 0 0 1px var(--bg-primary-variant);
-      box-shadow: var(--tr-shadow);
-      display: flex;
-      border-radius: 0.3rem;
-      transition: all calc(0.2 * var(--base-duration))
-        cubic-bezier(0.31, 0.95, 0.35, 1);
-      background: var(--bg-primary);
-
-      &:focus-visible {
-        outline: 0.2rem solid var(--text-accent);
-        z-index: 5;
-      }
-    }
-
-    tr + tr {
-      margin-block-start: 1px;
-    }
-
-    th,
-    td {
-      min-block-size: 3.8rem;
-      padding-block: 0.8rem;
-      padding-inline: 1.6rem 1.2rem;
-      border: none;
-      inline-size: 13.6rem;
-      font: var(--font-base);
-      line-height: 2rem;
-      display: flex;
-      align-items: center;
-
-      &:first-child {
-        border-radius: var(--tabular-list-radius) 0 0 var(--tabular-list-radius);
-      }
-
-      &:last-child {
-        border-radius: 0 var(--tabular-list-radius) var(--tabular-list-radius) 0;
-      }
-    }
-
-    .cell-grow {
-      flex: 1 0 20.4rem;
-    }
-
-    .cell-shrink {
-      flex: 0;
+    &:last-child {
+      border-radius: 0 var(--tabular-list-radius) var(--tabular-list-radius) 0;
     }
   }
 
-  &:not([no-hover]) ::ng-deep {
-    tr {
-      cursor: pointer;
+  .cell--grow {
+    flex: 1 0 20.4rem;
+  }
 
-      &:hover {
-        background: var(--bg-primary-variant);
-        color: var(--text-accent);
-        transition: all calc(0 * var(--base-duration));
-      }
+  .cell--shrink {
+    flex: 0;
+  }
+}
 
-      &:active {
-        transform: translateY(1px);
-      }
+:host:not([no-hover]) ::ng-deep {
+  tr {
+    cursor: pointer;
+
+    &:hover {
+      background: var(--bg-primary-variant);
+      color: var(--text-accent);
+      transition: all calc(0 * var(--base-duration));
     }
 
-    tr + tr {
-      &:active {
-        transform: translateY(1px);
-        border-block-start: transparent;
-        box-shadow: 0 -1px 0 var(--backdrop), var(--tr-shadow),
-          inset 0 0.2rem 0.4rem -0.2rem var(--backdrop);
-      }
+    &:active {
+      transform: translateY(1px);
+    }
+  }
+
+  tr + tr {
+    &:active {
+      transform: translateY(1px);
+      border-block-start: transparent;
+      box-shadow: 0 -1px 0 var(--backdrop), var(--tr-shadow),
+        inset 0 0.2rem 0.4rem -0.2rem var(--backdrop);
     }
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, HostBinding, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { Character } from '../../api_responses/character';
@@ -11,6 +11,8 @@ import { CharactersService } from '../../services/characters.service';
   encapsulation: ViewEncapsulation.Emulated,
 })
 export class IndividualComponent implements OnInit {
+  @HostBinding('class') hostClasses = 'individual';
+
   character: Character;
 
   constructor(private route: ActivatedRoute, private charactersService: CharactersService) { }

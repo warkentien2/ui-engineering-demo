@@ -9,7 +9,7 @@
     display: flex;
     flex-direction: column;
 
-    header {
+    .characters__filter {
       display: grid;
       grid-template-columns: 1fr 21.2rem;
       grid-template-rows: 4.4rem;
@@ -18,15 +18,15 @@
       margin-block-end: 4rem;
     }
 
-    input,
-    button {
+    .characters__filter-input,
+    .characters__filter-submit {
       font: var(--font-base);
       block-size: 4.4rem;
       border-radius: 0.6rem;
       border: none;
     }
 
-    input {
+    .characters__filter-input {
       padding-block: 1.3rem;
       padding-inline: 1.7rem;
 
@@ -40,7 +40,7 @@
       }
     }
 
-    button {
+    .characters__filter-submit {
       inline-size: 100%;
 
       :root[vertical] & {
@@ -69,13 +69,13 @@
       }
     }
 
-    .characters-filter {
+    .characters__filter {
       opacity: 0;
-      animation: characters-filter-reveal calc(0.25 * var(--base-duration))
+      animation: characters__filter--reveal calc(0.25 * var(--base-duration))
         ease-out forwards calc(0.125 * var(--base-duration));
     }
 
-    @keyframes characters-filter-reveal {
+    @keyframes characters__filter--reveal {
       0% {
         opacity: 0;
       }
@@ -86,17 +86,17 @@
   }
 
   /* (Progressive enhancement)
-    .characters-filter fade out effect 
+    .characters__filter fade out effect 
   */
 
   :root:not([reduced-motion])
     .navigation-tabs:has(li:not(:first-child) a:active)
     ~ &
-    .characters-filter {
-    animation: characters-filter-hide calc(0.125 * var(--base-duration))
+    .characters__filter {
+    animation: characters__filter--hide calc(0.125 * var(--base-duration))
       ease-out forwards !important;
 
-    @keyframes characters-filter-hide {
+    @keyframes characters__filter--hide {
       0% {
         opacity: 1;
       }
@@ -107,22 +107,22 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .characters-filter {
+    .characters__filter {
       animation: none !important;
     }
   }
 
   @media (max-width: 48rem) {
-    & .characters .characters-filter {
+    & .characters .characters__filter {
       gap: 0;
       grid-template-columns: 1fr 4.4rem;
 
-      input {
+      .characters__filter-input {
         border-start-end-radius: 0;
         border-end-end-radius: 0;
       }
 
-      button {
+      .characters__filter-submit {
         border-start-start-radius: 0;
         border-end-start-radius: 0;
         inline-size: 4.4rem;
@@ -132,17 +132,17 @@
   }
 
   @media (max-height: 48rem) {
-    :root[vertical] & .characters .characters-filter {
+    :root[vertical] & .characters .characters__filter {
       gap: 0 !important;
       grid-template-columns: 1fr 4.4rem !important;
 
-      input {
+      .characters__filter-input {
         border-start-end-radius: 0;
         border-end-end-radius: 0;
         width: calc(100dvh - 4.4rem - 3.2rem) !important;
       }
 
-      button {
+      .characters__filter-submit {
         border-start-start-radius: 0;
         border-start-end-radius: 0;
         height: 4.4rem !important;

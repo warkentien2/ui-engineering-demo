@@ -1,6 +1,7 @@
 <section class="characters">
-  <header class="characters-filter">
+  <header class="characters__filter">
     <input
+      class="characters__filter-input"
       name="name-search"
       placeholder="Search By Name"
       aria-placeholder="Search Character By Name"
@@ -11,13 +12,13 @@
     />
 
     <button
+      class="characters__filter-submit accent-button"
       (click)="getCharacters(1)"
       aria-label="Search"
       title="Search"
-      class="accent-button"
     >
       <svg
-        class="media-sm"
+        class="characters__filter-submit__icon media-sm"
         xmlns="http://www.w3.org/2000/svg"
         width="48"
         height="48"
@@ -33,11 +34,11 @@
           fill="currentColor"
         ></path>
       </svg>
-      <span class="media-lg">Search</span>
+      <span class="characters__filter-submit__label media-lg">Search</span>
     </button>
   </header>
 
-  <ui-tabular-list *ngIf="characterCall">
+  <ui-tabular-list class="characters__list" *ngIf="characterCall">
     <tbody *ngIf="characterCall.results">
       <tr
         *ngFor="let c of characterCall.results"
@@ -47,7 +48,7 @@
         [routerLinkActiveOptions]="{ exact: false }"
         tabindex="0"
       >
-        <td class="cell-grow">{{ c.name }}</td>
+        <td class="cell--grow">{{ c.name }}</td>
         <td>{{ c.species }}</td>
         <td>{{ c.status }}</td>
         <td>{{ c.gender }}</td>
@@ -55,6 +56,7 @@
     </tbody>
 
     <ui-pagination
+      class="characters__pagination"
       *ngIf="pages"
       [currentPage]="currentPage"
       [totalPages]="characterCall.info.pages"

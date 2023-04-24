@@ -1,4 +1,15 @@
-import { Component, EventEmitter, HostListener, Input, OnChanges, OnInit, Output, SimpleChanges, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  HostBinding,
+  HostListener,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges,
+  ViewEncapsulation
+} from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,6 +19,7 @@ import { Router } from '@angular/router';
   encapsulation: ViewEncapsulation.Emulated,
 })
 export class PaginationComponent implements OnChanges, OnInit {
+  @HostBinding('class') hostClasses = 'pagination';
   @Input() currentPage = 1;
   @Input() totalPages: number;
   @Output() pageChange = new EventEmitter<number>();

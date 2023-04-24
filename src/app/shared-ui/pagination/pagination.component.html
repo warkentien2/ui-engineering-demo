@@ -1,58 +1,61 @@
-<div class="pagination">
-  <button
-    (click)="changeRange(visiblePages[0] - 1)"
-    [hidden]="visiblePages[0] === 1"
-    aria-label="Show Previous Range"
+<button
+  class="pagination__button pagination__button--prev"
+  (click)="changeRange(visiblePages[0] - 1)"
+  [hidden]="visiblePages[0] === 1"
+  aria-label="Show Previous Range"
+>
+  <span>&laquo;</span>
+</button>
+<ul class="pagination__list">
+  <li
+    class="pagination__item"
+    *ngIf="visiblePages[0] !== 1"
+    (click)="changeRangeAndGoTo(1)"
+    (keydown.enter)="changeRangeAndGoTo(1)"
+    [ngClass]="{ active: currentPage === 1 }"
+    [aria-pressed]="currentPage === 1 ? 'true' : 'false'"
+    role="button"
+    tabindex="0"
   >
-    <span>&laquo;</span>
-  </button>
-  <ul>
-    <li
-      *ngIf="visiblePages[0] !== 1"
-      (click)="changeRangeAndGoTo(1)"
-      (keydown.enter)="changeRangeAndGoTo(1)"
-      [ngClass]="{ active: currentPage === 1 }"
-      [aria-pressed]="currentPage === 1 ? 'true' : 'false'"
-      role="button"
-      tabindex="0"
-    >
-      1
-    </li>
-    <li *ngIf="visiblePages[0] > 2" class="disabled">...</li>
-    <li
-      *ngFor="let p of visiblePages"
-      [ngClass]="{ active: p === currentPage }"
-      [aria-pressed]="p === currentPage ? 'true' : 'false'"
-      (click)="goToPage(p)"
-      (keydown.enter)="goToPage(p)"
-      role="button"
-      tabindex="0"
-    >
-      {{ p }}
-    </li>
-    <li
-      *ngIf="visiblePages[visiblePages.length - 1] < totalPages - 1"
-      class="disabled"
-    >
-      ...
-    </li>
-    <li
-      *ngIf="visiblePages[visiblePages.length - 1] !== totalPages"
-      (click)="changeRangeAndGoTo(totalPages)"
-      (keydown.enter)="changeRangeAndGoTo(totalPages)"
-      [ngClass]="{ active: currentPage === totalPages }"
-      [aria-pressed]="currentPage === totalPages ? 'true' : 'false'"
-      role="button"
-      tabindex="0"
-    >
-      {{ totalPages }}
-    </li>
-  </ul>
-  <button
-    (click)="changeRange(visiblePages[visiblePages.length - 1] + 1)"
-    [hidden]="visiblePages[visiblePages.length - 1] === totalPages"
-    aria-label="Show Next Range"
+    1
+  </li>
+  <li *ngIf="visiblePages[0] > 2" class="pagination__item disabled">...</li>
+  <li
+    class="pagination__item"
+    *ngFor="let p of visiblePages"
+    [ngClass]="{ active: p === currentPage }"
+    [aria-pressed]="p === currentPage ? 'true' : 'false'"
+    (click)="goToPage(p)"
+    (keydown.enter)="goToPage(p)"
+    role="button"
+    tabindex="0"
   >
-    <span>&raquo;</span>
-  </button>
-</div>
+    {{ p }}
+  </li>
+  <li
+    *ngIf="visiblePages[visiblePages.length - 1] < totalPages - 1"
+    class="pagination__item disabled"
+  >
+    ...
+  </li>
+  <li
+    class="pagination__item"
+    *ngIf="visiblePages[visiblePages.length - 1] !== totalPages"
+    (click)="changeRangeAndGoTo(totalPages)"
+    (keydown.enter)="changeRangeAndGoTo(totalPages)"
+    [ngClass]="{ active: currentPage === totalPages }"
+    [aria-pressed]="currentPage === totalPages ? 'true' : 'false'"
+    role="button"
+    tabindex="0"
+  >
+    {{ totalPages }}
+  </li>
+</ul>
+<button
+  class="pagination__button pagination__button-next"
+  (click)="changeRange(visiblePages[visiblePages.length - 1] + 1)"
+  [hidden]="visiblePages[visiblePages.length - 1] === totalPages"
+  aria-label="Show Next Range"
+>
+  <span>&raquo;</span>
+</button>

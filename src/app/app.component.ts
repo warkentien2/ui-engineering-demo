@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, HostBinding, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
 
@@ -11,9 +11,12 @@ import { SharedService } from './services/shared.service';
   encapsulation: ViewEncapsulation.Emulated,
 })
 export class AppComponent implements OnInit {
+  @HostBinding('class') hostClasses = 'app';
+
   characterPage = 1;
   characterNameSearch = '';
   currentRoute = '';
+  title = 'The Rick and Morty';
 
   constructor(private route: ActivatedRoute, private sharedService: SharedService, private router: Router) {
     this.router.events
@@ -36,7 +39,7 @@ export class AppComponent implements OnInit {
       });
   }
 
-  onClick(): void {
+  onHeroClick(): void {
     this.sharedService.triggerChildFunction();
   }
 

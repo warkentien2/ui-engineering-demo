@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, HostBinding, OnInit, ViewEncapsulation } from '@angular/core';
 
 import { EpisodeApiResponse } from '../../api_responses/episodeapiresponse';
 import { EpisodesService } from '../../services/episodes.service';
@@ -10,6 +10,8 @@ import { EpisodesService } from '../../services/episodes.service';
   encapsulation: ViewEncapsulation.Emulated,
 })
 export class EpisodesComponent implements OnInit {
+  @HostBinding('class') hostClasses = 'episodes';
+
   episodesCall: EpisodeApiResponse;
   pages: number[];
   currentPage = 1;
