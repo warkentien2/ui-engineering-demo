@@ -64,6 +64,7 @@
   th,
   td {
     position: relative;
+    padding-block: 0.2rem 0;
     padding-inline: 1.6rem;
     border: none;
     min-inline-size: 14.625rem;
@@ -114,10 +115,10 @@
   }
 }
 
-.tabular:not([no-hover]) ::ng-deep {
+:host:not([no-hover]) ::ng-deep {
   tr {
     cursor: pointer;
-    transition: all calc(0 * var(--base-duration));
+    transition: all calc(0.1875 * var(--base-duration));
 
     th,
     td,
@@ -126,31 +127,24 @@
       transition: inherit;
     }
 
-    &:hover {
+    &:hover th,
+    &:hover td {
       color: var(--text-accent);
+      transition: none;
+
+      &::before {
+        background: var(--bg-primary-variant);
+      }
     }
 
     &:active th,
     &:active td {
       transform: translateY(1px);
+      transition: all calc(0.125 * var(--base-duration));
 
       &::before {
-        background: var(--bg-primary-variant);
+        box-shadow: inset 0 0.3rem 0.4rem -0.3rem rgba(0, 0, 0, 0.25);
         transform: translateY(-1px);
-      }
-    }
-  }
-
-  tr + tr {
-    &:active {
-      th,
-      td {
-        transform: translateY(1px);
-
-        &::before {
-          box-shadow: inset 0 0.3rem 0.4rem -0.3rem rgba(0, 0, 0, 0.25);
-          transform: translateY(-1px);
-        }
       }
     }
   }

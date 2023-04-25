@@ -88,7 +88,6 @@
 
     &:hover:not([hidden]) {
       background: var(--bg-primary-variant);
-      color: var(--text-accent);
       transition: all calc(0 * var(--base-duration));
     }
 
