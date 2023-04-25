@@ -261,6 +261,9 @@ helper classes (rm- for 'R'ick and 'M'orty)
 }
 
 .rm__accent-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: var(--bg-accent);
   color: var(--text-accent-complement);
   transition: all calc(0.125 * var(--base-duration)) ease-out;
