@@ -125,11 +125,18 @@
     input {
       direction: ltr !important;
       writing-mode: vertical-rl !important;
+
+      @-moz-document url-prefix() {
+        /* only targets firefox */
+        direction: initial !important;
+        writing-mode: initial !important;
+      }
     }
 
     button span {
       direction: ltr !important;
       writing-mode: vertical-rl !important;
+      white-space: nowrap;
       margin: auto;
     }
   }
@@ -168,6 +175,7 @@ body {
   }
 
   @-moz-document url-prefix() {
+    /* only targets firefox */
     background: var(--backdrop);
   }
 
