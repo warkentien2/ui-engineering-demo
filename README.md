@@ -29,6 +29,9 @@ Going Beyond task list: (improvements part of this PR)
 - [x] fix ltr hero title
 - [x] Improve Vertical layout
 - [x] Handle reduced motion (and controls)
+- [x] Fix cross-browser tabular-list UI
+- [x] Fix cross-browser ui-settings UI
+- [x] Fix cross-browser characters header UI (input, button)
 
 Backlog:
 
