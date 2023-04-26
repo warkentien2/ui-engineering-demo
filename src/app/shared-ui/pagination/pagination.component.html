@@ -1,8 +1,10 @@
 <button
   class="pagination__button pagination__button--prev"
   (click)="changeRange(visiblePages[0] - 1)"
+  (keydown.enter)="changeRange(visiblePages[0] - 1)"
   [hidden]="visiblePages[0] === 1"
   aria-label="Show Previous Range"
+  tabindex="0"
 >
   <span>&laquo;</span>
 </button>
@@ -54,8 +56,10 @@
 <button
   class="pagination__button pagination__button-next"
   (click)="changeRange(visiblePages[visiblePages.length - 1] + 1)"
+  (keydown.enter)="changeRange(visiblePages[visiblePages.length - 1] + 1)"
   [hidden]="visiblePages[visiblePages.length - 1] === totalPages"
   aria-label="Show Next Range"
+  tabindex="0"
 >
   <span>&raquo;</span>
 </button>

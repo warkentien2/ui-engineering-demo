@@ -14,6 +14,8 @@
     <button
       class="characters__filter-submit rm__accent-button"
       (click)="getCharacters(1)"
+      (keydown.enter)="getCharacters(1)"
+      tabindex="0"
       aria-label="Search"
       title="Search"
     >
@@ -46,6 +48,7 @@
         [queryParams]="{ fromPage: currentPage, nameSearch: searchTerm }"
         routerLinkActive="active"
         [routerLinkActiveOptions]="{ exact: false }"
+        (keydown.enter)="tabularList.onEnterKeyPressed($event)"
         tabindex="0"
       >
         <td class="cell--grow">{{ c.name }}</td>

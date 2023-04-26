@@ -8,4 +8,9 @@ import { Component, HostBinding, ViewEncapsulation } from '@angular/core';
 })
 export class TabularListComponent {
   @HostBinding('class') hostClasses = 'tabular-list';
+
+  onEnterKeyPressed(event: KeyboardEvent): void {
+    event.preventDefault();
+    (event.currentTarget as HTMLElement).click();
+  }
 }

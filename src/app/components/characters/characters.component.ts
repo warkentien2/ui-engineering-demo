@@ -1,8 +1,9 @@
-import { Component, HostBinding, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, HostBinding, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { CharacterApiResponse } from '../../api_responses/characterapiresponse';
 import { CharactersService } from '../../services/characters.service';
+import { TabularListComponent } from '../../shared-ui/tabular-list/tabular-list.component';
 
 @Component({
   selector: 'characters',
@@ -12,6 +13,7 @@ import { CharactersService } from '../../services/characters.service';
 })
 export class CharactersComponent implements OnInit {
   @HostBinding('class') hostClasses = 'characters-container';
+  @ViewChild(TabularListComponent) tabularList!: TabularListComponent;
 
   characterCall: CharacterApiResponse;
   pages: number[];
