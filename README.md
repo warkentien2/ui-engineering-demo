@@ -1,3 +1,5 @@
+Taking [forked repo](https://github.com/time-loop/ui-engineer-mini-project) beyond the initial requirements to showcase UI Engineering principals.
+
 # Notes to the team:
 
 1. There's a Gear FAB that can be used for live debugging

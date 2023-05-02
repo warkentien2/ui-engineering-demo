@@ -7,7 +7,8 @@
   text-rendering: optimizeLegibility;
 
   /* 
-    10px = 1rem hack: 
+    1rem = 10px trick: 
+    Makes it easier to calculate rem values in CSS (e.g.: 1.6rem = 16px)
     [read more](https://www.aleksandrhovhannisyan.com/blog/62-5-percent-font-size-trick/) 
   */
 
